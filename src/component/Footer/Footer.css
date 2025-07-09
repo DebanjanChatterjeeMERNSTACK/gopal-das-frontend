@@ -1,0 +1,38 @@
+.footer_contaner {
+  width: 100%;
+  height: auto;
+  background-color: #f2ffff;
+}
+.footer_logo {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.footer_logo h3 {
+  font-size: 1.5rem;
+  color: #008d84;
+  font-weight: 700;
+}
+.footer_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer_menu li {
+  margin-left: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.footer_menu li:hover {
+  color: #008d84;
+  transform: translateY(-2px);
+}
+.footer_comapany {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.footer_comapany h6 {
+  line-height: 25px;
+}
