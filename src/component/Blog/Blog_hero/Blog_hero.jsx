@@ -1,6 +1,7 @@
 import "./Blog_hero.css";
 import img from "../../../assets/writer.jpg"
 import img1 from "../../../assets/writer.jpg"
+import Blog_contant from "../Blog_contant/Blog_contant";
 
 const Blog_hero = () => {
   return (
@@ -26,6 +27,7 @@ const Blog_hero = () => {
           </div>
         </div>
       </div>
+      <Blog_contant/>
     </>
   );
 };

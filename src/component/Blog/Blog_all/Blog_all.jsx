@@ -5,6 +5,9 @@ const Blogall = () => {
   return (
     <>
       <div className="bookall_contaner">
+        <div className="bgimage">
+          <h3>Blog</h3>
+        </div>
         <div className="bookall_maxwidth">
           <input
             className="form-control"
