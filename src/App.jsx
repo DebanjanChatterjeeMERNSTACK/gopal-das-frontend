@@ -14,7 +14,7 @@ const App = () => {
       {/* <Book/> */}
       {/* <BlogAll/> */}
       {/* <ImageGallery/> */}
-      <VideoGallery />
+      {/* <VideoGallery /> */}
       <ContactUs/>
     </>
   );

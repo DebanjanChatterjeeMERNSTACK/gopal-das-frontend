@@ -33,7 +33,7 @@ const Imagegallery = () => {
                 <img
                   src={selectedImage}
                   alt="Full view"
-                  className="modal-image"
+                  className="modal_image"
                 />
               </div>
             )}
