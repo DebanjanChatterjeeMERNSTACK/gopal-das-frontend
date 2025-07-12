@@ -46,6 +46,21 @@
   cursor: pointer;
   color: #008D84;
 }
+/* Active link styles */
+.header_menu li a.active-link {
+  color: #008D84;
+  font-weight: 600;
+}
+.header_menu li a {
+  color: inherit; /* Inherits color from parent */
+  text-decoration: none; /* Removes underline */
+}
+
+/* If you want to style the hover state differently */
+.header_menu li a:hover:not(.active-link) {
+  color: #008D84;
+  transform: translateY(-2px);
+}
 
 /* Tablet styles */
 @media (max-width: 992px) {
