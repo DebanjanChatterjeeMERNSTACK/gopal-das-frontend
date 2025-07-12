@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import ImageGallery from "./pages/ImageGallery";
 import VideoGallery from "./pages/VideoGallery";
 import Error from "./pages/Error";
+import Books_details from "./pages/Books_details";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/book" element={<Book />} />
+           <Route path="/book-details/:id" element={<Books_details />} />
           <Route path="/image-gallery" element={<ImageGallery />} />
           <Route path="/video-gallery" element={<VideoGallery />} />
           <Route path="/blogs" element={<BlogAll />} />

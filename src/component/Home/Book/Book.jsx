@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Import arrow icons
 import "./Book.css";
+import { NavLink } from "react-router-dom";
 
 // Custom arrow components
 const NextArrow = ({ onClick }) => {
@@ -49,12 +50,12 @@ const Book = () => {
           centerPadding: "0px",
         },
       },
-       {
+      {
         breakpoint: 666,
         settings: {
           slidesToShow: 2,
           centerPadding: "30px",
-           centerMode: true,
+          centerMode: true,
         },
       },
       {
@@ -62,15 +63,15 @@ const Book = () => {
         settings: {
           slidesToShow: 2,
           centerPadding: "10px",
-           centerMode: true,
+          centerMode: true,
         },
       },
-       {
+      {
         breakpoint: 468,
         settings: {
           slidesToShow: 2,
           centerPadding: "0px",
-        //    centerMode: true,
+          //    centerMode: true,
         },
       },
       {
@@ -78,15 +79,15 @@ const Book = () => {
         settings: {
           slidesToShow: 1.5,
           centerPadding: "0px",
-        //    centerMode: true,
+          //    centerMode: true,
         },
       },
-       {
+      {
         breakpoint: 333,
         settings: {
           slidesToShow: 1,
-        //   centerPadding: "0px",
-        //    centerMode: true,
+          //   centerPadding: "0px",
+          //    centerMode: true,
         },
       },
     ],
@@ -97,18 +98,37 @@ const Book = () => {
       <div className="book_maxwidth">
         <h5>MY SERVICE</h5>
         <h2>What I Do</h2>
-        <Slider {...settings}>
-          {[1, 2, 3, 4, 5, 6].map((item, index) => (
-            <div key={index} className="book_img">
-              <img
-                src="https://m.media-amazon.com/images/I/71sBtM3Yi5L._SY425_.jpg"
-                width={200}
-                height={300}
-                alt={`Book ${index}`}
-              />
-            </div>
-          ))}
-        </Slider>
+        {[1, 2, 3, 4].length >= 5 ? (
+          <Slider {...settings}>
+            {[1, 2, 3, 4, 5, 6].map((item, index) => (
+              <div key={index} className="book_img">
+                <NavLink to={"/book-details/jhlkjlk"}>
+                  <img
+                    src="https://m.media-amazon.com/images/I/71sBtM3Yi5L._SY425_.jpg"
+                    width={200}
+                    height={300}
+                    alt={`Book ${index}`}
+                  />
+                </NavLink>
+              </div>
+            ))}
+          </Slider>
+        ) : (
+          <div className="book_flex">
+            {[1, 2, 3, 4].map((item, index) => (
+              <div key={index} className="book_img">
+                <NavLink to={"/book-details/jhlkjlk"}>
+                  <img
+                    src="https://m.media-amazon.com/images/I/71sBtM3Yi5L._SY425_.jpg"
+                    width={200}
+                    height={300}
+                    alt={`Book ${index}`}
+                  />
+                </NavLink>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

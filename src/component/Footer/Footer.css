@@ -36,3 +36,13 @@
 .footer_comapany h6 {
   line-height: 25px;
 }
+
+
+.footer_menu li a.active-link {
+  color: #008D84;
+  font-weight: 600;
+}
+.footer_menu li a {
+  color: inherit; /* Inherits color from parent */
+  text-decoration: none; /* Removes underline */
+}
