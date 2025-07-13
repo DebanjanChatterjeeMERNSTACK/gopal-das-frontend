@@ -12,6 +12,9 @@ import Admin_login from "./pages/Admin_login";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Dashboard_book from "./pages/Dashboard/Dashboard_book";
 import Dashboard_blog from './pages/Dashboard/Dashboard_blog'
+import Dashboard_contact from "./pages/Dashboard/Dashboard_contact";
+import Dashboard_videogallery from "./pages/Dashboard/Dashboard_videogallery";
+import Dashboard_imagegallery from "./pages/Dashboard/Dashboard_imagegallery";
 
 const App = () => {
   return (
@@ -32,6 +35,9 @@ const App = () => {
           <Route path="/admin" element={<Dashboard />} />
           <Route path="/admin/book" element={<Dashboard_book />} />
           <Route path="/admin/blog" element={<Dashboard_blog />} />
+          <Route path="/admin/contact" element={<Dashboard_contact />} />
+           <Route path="/admin/video-gallery" element={<Dashboard_videogallery />} />
+            <Route path="/admin/image-gallery" element={<Dashboard_imagegallery />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

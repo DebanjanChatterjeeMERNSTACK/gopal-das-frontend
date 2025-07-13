@@ -26,16 +26,16 @@ const Dashboard_header = () => {
         <div className={`header_menu ${isMenuOpen ? "active" : ""}`}>
           <li>
             <NavLink
-              to="/"
+              to="/admin"
               className={({ isActive }) => (isActive ? "active-link" : "")}
               end
             >
-              Home
+              Dashboard
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/book"
+              to="/admin/book"
               className={({ isActive }) => (isActive ? "active-link" : "")}
             >
               Books
@@ -43,7 +43,7 @@ const Dashboard_header = () => {
           </li>
           <li>
             <NavLink
-              to="/blogs"
+              to="/admin/blog"
               className={({ isActive }) => (isActive ? "active-link" : "")}
             >
               Blog
@@ -51,7 +51,7 @@ const Dashboard_header = () => {
           </li>
           <li>
             <NavLink
-              to="/image-gallery"
+              to="/admin/image-gallery"
               className={({ isActive }) => (isActive ? "active-link" : "")}
             >
               Image Gallery
@@ -59,7 +59,7 @@ const Dashboard_header = () => {
           </li>
           <li>
             <NavLink
-              to="/video-gallery"
+              to="/admin/video-gallery"
               className={({ isActive }) => (isActive ? "active-link" : "")}
             >
               Video Gallery
@@ -67,7 +67,7 @@ const Dashboard_header = () => {
           </li>
           <li>
             <NavLink
-              to="/contact"
+              to="/admin/contact"
               className={({ isActive }) => (isActive ? "active-link" : "")}
             >
               Contact

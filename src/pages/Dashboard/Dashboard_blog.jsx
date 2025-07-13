@@ -1,6 +1,7 @@
 import React from "react";
 import Dashboard_header from "../../Dashboard/Header/Dashboard_header";
 import "./Dashboard.css";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Dashboard_blog = () => {
   return (
@@ -8,34 +9,85 @@ const Dashboard_blog = () => {
       <Dashboard_header />
       <div className="dashbord_contaner">
         <div className="dashbord_maxwidth">
-          <div class="mb-3">
-            <label for="formFile" class="form-label">
-              Default file input example
-            </label>
-            <input
-              class="form-control"
-              type="text"
-              placeholder="Default input"
-              aria-label="default input example"
-            />
+          <h4 className="text-success">Blog</h4>
+          <form>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">
+                Blog Title
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Title"
+                aria-label="default input example"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">
+               Blog Image
+              </label>
+              <input class="form-control" type="file" id="formFile" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">
+                Blog Description
+              </label>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                placeholder="Description"
+                rows="3"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">
+             Submit Post
+            </button>
+          </form>
+          <div class="table-responsive">
+            <table class="table table-bordered mt-5 border-success">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Blog Image</th>
+                  <th scope="col">Blog Title</th>
+                  <th scope="col">Blog Description</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th >1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td>
+                    <button type="button" className="btn btn-primary me-2">
+                      <FaEdit />
+                    </button>
+
+                    <button type="button" className="btn btn-danger">
+                      <FaTrash />
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                  <td>
+                    <button type="button" className="btn btn-primary me-2">
+                      <FaEdit />
+                    </button>
+
+                    <button type="button" className="btn btn-danger">
+                      <FaTrash />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="mb-3">
-            <label for="formFile" class="form-label">
-              Default file input example
-            </label>
-            <input class="form-control" type="file" id="formFile" />
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">
-              Example textarea
-            </label>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-            ></textarea>
-          </div>
-          <button type="button" class="btn btn-success">Success</button>
         </div>
       </div>
     </>
