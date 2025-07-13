@@ -107,7 +107,7 @@ textarea {
   resize: vertical;
 }
 
-.btn {
+.btn5 {
   background: linear-gradient(90deg, #308174, #01bd9d);
   color: white;
   padding: 14px;
@@ -120,7 +120,7 @@ textarea {
   cursor: pointer;
   transition: 0.3s;
 }
-.btn:hover{
+.btn5:hover{
   color: white;
 }
 

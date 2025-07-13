@@ -54,7 +54,7 @@ const Contact = () => {
                   <input type="text" placeholder="Your Phone" />
                 </div>
                 <textarea placeholder="Write Your Message" rows="5" className="textareacolor"></textarea>
-                <button type="submit" className="btn">SEND MESSAGE</button>
+                <button type="submit" className="btn5">SEND MESSAGE</button>
               </form>
             </div>
           </div>

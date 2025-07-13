@@ -13,7 +13,7 @@ const ErrorPage = () => {
         </p>
 
         <NavLink to={"/"} >
-        <button className="btn">
+        <button className="btn5">
           ⬅ Back to Home
           </button>
         </NavLink>
