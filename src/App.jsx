@@ -8,6 +8,10 @@ import ImageGallery from "./pages/ImageGallery";
 import VideoGallery from "./pages/VideoGallery";
 import Error from "./pages/Error";
 import Books_details from "./pages/Books_details";
+import Admin_login from "./pages/Admin_login";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Dashboard_book from "./pages/Dashboard/Dashboard_book";
+import Dashboard_blog from './pages/Dashboard/Dashboard_blog'
 
 const App = () => {
   return (
@@ -22,6 +26,12 @@ const App = () => {
           <Route path="/blogs" element={<BlogAll />} />
           <Route path="/blogs-details/:id" element={<Blog_details />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/login" element={<Admin_login />} />
+
+
+          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/admin/book" element={<Dashboard_book />} />
+          <Route path="/admin/blog" element={<Dashboard_blog />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
