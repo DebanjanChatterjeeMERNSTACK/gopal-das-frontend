@@ -11,40 +11,40 @@ const Dashboard_blog = () => {
         <div className="dashbord_maxwidth">
           <h4 className="text-success">Blog</h4>
           <form>
-            <div class="mb-3">
-              <label for="formFile" class="form-label">
+            <div className="mb-3">
+              <label htmlFor="formFile" className="form-label">
                 Blog Title
               </label>
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 placeholder="Title"
                 aria-label="default input example"
               />
             </div>
-            <div class="mb-3">
-              <label for="formFile" class="form-label">
+            <div className="mb-3">
+              <label htmlFor="formFile" className="form-label">
                Blog Image
               </label>
-              <input class="form-control" type="file" id="formFile" />
+              <input className="form-control" type="file" id="formFile" />
             </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">
+            <div className="mb-3">
+              <label htmlFor="exampleFormControlTextarea1" className="form-label">
                 Blog Description
               </label>
               <textarea
-                class="form-control"
+                className="form-control"
                 id="exampleFormControlTextarea1"
                 placeholder="Description"
                 rows="3"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-success">
+            <button type="submit" className="btn btn-success">
              Submit Post
             </button>
           </form>
-          <div class="table-responsive">
-            <table class="table table-bordered mt-5 border-success">
+          <div className="table-responsive">
+            <table className="table table-bordered mt-5 border-success">
               <thead>
                 <tr>
                   <th scope="col">#</th>
