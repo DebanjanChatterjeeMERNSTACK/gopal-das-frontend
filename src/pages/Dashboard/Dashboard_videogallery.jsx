@@ -38,7 +38,7 @@ const Dashboard_videogallery = () => {
   };
   return (
     <>
-      <Dashboard_header />
+      {/* <Dashboard_header /> */}
       <div className="dashbord_contaner">
         <div className="dashbord_maxwidth">
           <h4 className="text-success">Video Gallery</h4>

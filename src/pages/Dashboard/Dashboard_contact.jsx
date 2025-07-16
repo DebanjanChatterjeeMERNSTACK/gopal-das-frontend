@@ -6,12 +6,12 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 const Dashboard_contact = () => {
   return (
     <>
-      <Dashboard_header />
+      {/* <Dashboard_header /> */}
       <div className="dashbord_contaner">
         <div className="dashbord_maxwidth">
           <h4 className="text-success">Contact</h4>
-          <div class="table-responsive">
-            <table class="table table-bordered mt-2 border-success">
+          <div className="table-responsive">
+            <table className="table table-bordered mt-2 border-success">
               <thead>
                 <tr>
                   <th scope="col">#</th>

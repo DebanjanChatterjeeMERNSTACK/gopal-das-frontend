@@ -60,7 +60,7 @@ const [blogimage, setblogimage] = useState("");
 
   return (
     <>
-      <Dashboard_header />
+      {/* <Dashboard_header /> */}
       <div className="dashbord_contaner">
         <div className="dashbord_maxwidth">
           <h4 className="text-success">Blog</h4>

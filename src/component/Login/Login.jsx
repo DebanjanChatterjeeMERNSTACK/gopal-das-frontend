@@ -15,19 +15,22 @@ const Login = () => {
       <div className="login-form">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className=" mb-3">
             <label htmlFor="email">Email Id</label>
             <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+                className="form-control"
+                type="text"
+                // placeholder="Email"
+                aria-label="default input example"
+                required
+                value={email}
+                onChange={(e)=>{setEmail(e.target.value)}}
+              />
           </div>
-          <div className="form-group">
+          <div className=" mb-3">
             <label htmlFor="password">Password</label>
             <input
+             className="form-control"
               type="password"
               id="password"
               value={password}

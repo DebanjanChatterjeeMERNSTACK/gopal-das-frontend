@@ -27,30 +27,7 @@
 }
 
 /* Form group styles */
-.form-group {
-  margin-bottom: 20px;
-}
 
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #555;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #1c9726;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: border-color 0.3s;
-}
-
-.form-group input:focus {
-  border-color: #667eea;
-  outline: none;
-}
 
 /* Login button styles */
 .login-button {
