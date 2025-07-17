@@ -1,15 +1,21 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Dashboard_header.css";
 
 const Dashboard_header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <div>
       <div className="header_container">
@@ -29,6 +35,7 @@ const Dashboard_header = () => {
               to="/admin"
               className={({ isActive }) => (isActive ? "active-link" : "")}
               end
+              onClick={() => setIsMenuOpen(false)}
             >
               Dashboard
             </NavLink>
@@ -37,6 +44,7 @@ const Dashboard_header = () => {
             <NavLink
               to="/admin/book"
               className={({ isActive }) => (isActive ? "active-link" : "")}
+              onClick={() => setIsMenuOpen(false)}
             >
               Books
             </NavLink>
@@ -45,6 +53,7 @@ const Dashboard_header = () => {
             <NavLink
               to="/admin/blog"
               className={({ isActive }) => (isActive ? "active-link" : "")}
+              onClick={() => setIsMenuOpen(false)}
             >
               Blog
             </NavLink>
@@ -53,6 +62,7 @@ const Dashboard_header = () => {
             <NavLink
               to="/admin/image-gallery"
               className={({ isActive }) => (isActive ? "active-link" : "")}
+              onClick={() => setIsMenuOpen(false)}
             >
               Image Gallery
             </NavLink>
@@ -61,6 +71,7 @@ const Dashboard_header = () => {
             <NavLink
               to="/admin/video-gallery"
               className={({ isActive }) => (isActive ? "active-link" : "")}
+              onClick={() => setIsMenuOpen(false)}
             >
               Video Gallery
             </NavLink>
@@ -69,9 +80,15 @@ const Dashboard_header = () => {
             <NavLink
               to="/admin/contact"
               className={({ isActive }) => (isActive ? "active-link" : "")}
+              onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </NavLink>
+          </li>
+          <li>
+            <button onClick={handleLogout} className="logout-button">
+              Logout
+            </button>
           </li>
         </div>
       </div>

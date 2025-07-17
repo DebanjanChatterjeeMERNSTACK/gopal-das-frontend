@@ -38,6 +38,22 @@
   color: #008d84;
 }
 
+
+.logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #cc0000;
+}
+
 /* Mobile menu button - hidden by default */
 .mobile_menu_btn {
   display: none;
