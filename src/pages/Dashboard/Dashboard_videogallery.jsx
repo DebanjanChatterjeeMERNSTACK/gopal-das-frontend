@@ -1,23 +1,81 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Dashboard_header from "../../Dashboard/Header/Dashboard_header";
 import "./Dashboard.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
+const URL = import.meta.env.VITE_URL;
+
 const Dashboard_videogallery = () => {
   const [link, setlink] = useState("");
   const [loading, setloading] = useState(false);
+  const [videodata, setvideodata] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
+      setloading(true);
+      fetch(`${URL}/add_video`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          link: link,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.status == 200) {
+            setloading(false);
+            Swal.fire({
+              title: data.text,
+              icon: data.mess, // 'success', 'error', 'warning', 'info', or 'question'
+              confirmButtonText: "Ok",
+            });
+             fetchdata();
+             setlink("")
+          } else {
+            Swal.fire({
+              title: data.text,
+              icon: data.mess, // 'success', 'error', 'warning', 'info', or 'question'
+              confirmButtonText: "Ok",
+            });
+            setloading(false);
+          }
+        });
     } catch (error) {
       console.log(error);
+      setloading(false);
     }
   };
 
+  const fetchdata = () => {
+    fetch(`${URL}/get_video`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.data);
+        if (data.status === 200) {
+          setvideodata(data.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    fetchdata();
+  }, []);
+
   const handleDelete = (id) => {
-    console("delete");
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -28,11 +86,27 @@ const Dashboard_videogallery = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success",
-        });
+        fetch(`${URL}/delete_video/${id}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.status === 200) {
+              Swal.fire({
+                title: data.text,
+                icon: data.mess, // 'success', 'error', 'warning', 'info', or 'question'
+                confirmButtonText: "Ok",
+              });
+              fetchdata();
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     });
   };
@@ -85,34 +159,33 @@ const Dashboard_videogallery = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th>1</th>
-                  <td>Mark</td>
-                  <td>Video Preview</td>
-                  <td>
-                    <button
-                      type="button"
-                      className="btn btn-danger"
-                      onClick={() => handleDelete(id)}
+                {videodata.length > 0 ? (
+                  videodata.map((e, i) => (
+                    <tr key={i}>
+                      <th>{i + 1}</th>
+                      <td>{e.link}</td>
+                      <td></td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          onClick={() => handleDelete(e._id)}
+                        >
+                          <FaTrash />
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td
+                      colSpan="4"
+                      className="text-center text-danger fw-bolder"
                     >
-                      <FaTrash />
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th>2</th>
-                  <td>Jacob</td>
-                  <td>Video Preview</td>
-                  <td>
-                    <button
-                      type="button"
-                      className="btn btn-danger"
-                      onClick={() => handleDelete(id)}
-                    >
-                      <FaTrash />
-                    </button>
-                  </td>
-                </tr>
+                      Data Not Found
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
