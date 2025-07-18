@@ -8,11 +8,12 @@ const URL = import.meta.env.VITE_URL;
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setloading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setloading(true);
     fetch(`${URL}/admin_login`, {
       method: "POST",
       headers: {
@@ -28,15 +29,18 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         if (data.status == 200) {
+          setloading(false);
           localStorage.setItem("token", data.token);
           Swal.fire({
             title: data.text,
             icon: data.mess, // 'success', 'error', 'warning', 'info', or 'question'
             confirmButtonText: "Ok",
           });
+
           navigate("/admin");
-        }else{
-            Swal.fire({
+        } else {
+          setloading(false);
+          Swal.fire({
             title: data.text,
             icon: data.mess, // 'success', 'error', 'warning', 'info', or 'question'
             confirmButtonText: "Ok",
@@ -78,9 +82,16 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit" className="login-button">
-            Login
-          </button>
+
+          {loading ? (
+            <button type="submit" className="login-button" disabled>
+              <div className="spinner-border text-light" role="status"></div>
+            </button>
+          ) : (
+            <button type="submit" className="login-button">
+              Login
+            </button>
+          )}
         </form>
       </div>
     </div>

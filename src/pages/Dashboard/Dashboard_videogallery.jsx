@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Children, useEffect, useState } from "react";
 import Dashboard_header from "../../Dashboard/Header/Dashboard_header";
 import "./Dashboard.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
@@ -35,8 +35,8 @@ const Dashboard_videogallery = () => {
               icon: data.mess, // 'success', 'error', 'warning', 'info', or 'question'
               confirmButtonText: "Ok",
             });
-             fetchdata();
-             setlink("")
+            fetchdata();
+            setlink("");
           } else {
             Swal.fire({
               title: data.text,
@@ -53,6 +53,7 @@ const Dashboard_videogallery = () => {
   };
 
   const fetchdata = () => {
+    setloading(true)
     fetch(`${URL}/get_video`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -64,10 +65,12 @@ const Dashboard_videogallery = () => {
         console.log(data.data);
         if (data.status === 200) {
           setvideodata(data.data);
+          setloading(false)
         }
       })
       .catch((err) => {
         console.log(err);
+         setloading(false)
       });
   };
 
@@ -122,13 +125,13 @@ const Dashboard_videogallery = () => {
                 htmlFor="exampleFormControlTextarea1"
                 className="form-label"
               >
-                Video Gallery Link <span className="text-danger">*</span>
+                Youtube Embed Video Link <span className="text-danger">*</span>
               </label>
               <textarea
                 className="form-control"
                 id="exampleFormControlTextarea1"
                 required
-                placeholder="Video Link"
+                placeholder="Youtube Embed Video Link"
                 rows="3"
                 value={link}
                 onChange={(e) => {
@@ -148,47 +151,54 @@ const Dashboard_videogallery = () => {
             )}
           </form>
 
-          <div className="table-responsive">
-            <table className="table table-bordered mt-5 border-success">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Video Link</th>
-                  <th scope="col">Video Preview</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {videodata.length > 0 ? (
-                  videodata.map((e, i) => (
-                    <tr key={i}>
-                      <th>{i + 1}</th>
-                      <td>{e.link}</td>
-                      <td></td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          onClick={() => handleDelete(e._id)}
-                        >
-                          <FaTrash />
-                        </button>
-                      </td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td
-                      colSpan="4"
-                      className="text-center text-danger fw-bolder"
-                    >
-                      Data Not Found
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+          {loading ? (
+            <div
+              className="d-flex justify-content-center align-items-center"
+              style={{ height: "50vh", width: "100%" }}
+            >
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          ) : (
+            <div className="row mt-3">
+              {videodata.length > 0 ? (
+                videodata.map((e, index) => (
+                  <div
+                    key={index}
+                    className=" col-sm-6 col-md-6 col-lg-6 mb-4 position-relative"
+                  >
+                    <div
+                      // className="w-100 h-100"
+                      dangerouslySetInnerHTML={{ __html: e.link }}
+                      style={{
+                        height: "200px",
+                        overflow: "hidden",
+                      }}
+                    ></div>
+                    <div style={{
+                      position:"absolute",
+                      top:0,
+                      right:20
+                    }}>
+                      <button
+                        type="button"
+                        className="btn btn-danger rounded-circle"
+                        onClick={() => handleDelete(e._id)}
+                      >
+                        <FaTrash />
+                      </button>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center mt-5 w-100">
+                  <h2 className="text-danger">Oops! 😞</h2>
+                  <p className="fw-semibold">No videos found in the gallery.</p>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </>
