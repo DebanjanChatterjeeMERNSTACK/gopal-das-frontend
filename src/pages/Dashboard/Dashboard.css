@@ -10,3 +10,36 @@
     /* height: 100vh; */
     /* background-color:rgb(111, 143, 132); */
 }
+
+.gallery-card {
+  transition: transform 0.2s ease-in-out;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.gallery-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.img-hover-zoom {
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.3s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+.form-check-input {
+  cursor: pointer;
+}
+
+.form-check-label {
+  cursor: pointer;
+  font-weight: 500;
+}

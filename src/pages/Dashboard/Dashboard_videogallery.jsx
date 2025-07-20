@@ -3,10 +3,12 @@ import Dashboard_header from "../../Dashboard/Header/Dashboard_header";
 import "./Dashboard.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const URL = import.meta.env.VITE_URL;
 
 const Dashboard_videogallery = () => {
+  const navigate = useNavigate();
   const [link, setlink] = useState("");
   const [loading, setloading] = useState(false);
   const [videodata, setvideodata] = useState([]);
@@ -53,7 +55,7 @@ const Dashboard_videogallery = () => {
   };
 
   const fetchdata = () => {
-    setloading(true)
+    setloading(true);
     fetch(`${URL}/get_video`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -65,12 +67,14 @@ const Dashboard_videogallery = () => {
         console.log(data.data);
         if (data.status === 200) {
           setvideodata(data.data);
-          setloading(false)
+          setloading(false);
+        } else if (data.text === "Invalid Token") {
+          navigate("/login");
         }
       })
       .catch((err) => {
         console.log(err);
-         setloading(false)
+        setloading(false);
       });
   };
 
@@ -176,11 +180,13 @@ const Dashboard_videogallery = () => {
                         overflow: "hidden",
                       }}
                     ></div>
-                    <div style={{
-                      position:"absolute",
-                      top:0,
-                      right:20
-                    }}>
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        right: 20,
+                      }}
+                    >
                       <button
                         type="button"
                         className="btn btn-danger rounded-circle"

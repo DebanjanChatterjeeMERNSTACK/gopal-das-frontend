@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const URL = import.meta.env.VITE_URL;
 
 const Dashboard_contact = () => {
+  const navigate = useNavigate();
   const [contact, setcontact] = useState([]);
   const [loading, setloading] = useState(true);
 
@@ -24,6 +26,8 @@ const Dashboard_contact = () => {
         if (data.status === 200) {
           setcontact(data.data);
           setloading(true);
+        } else if (data.text === "Invalid Token") {
+          navigate("/login");
         }
       })
       .catch((err) => {
