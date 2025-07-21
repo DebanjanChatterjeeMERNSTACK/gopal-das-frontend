@@ -150,6 +150,8 @@ const Dashboard_imagegallery = () => {
             console.log(err);
             setdeleteloading(false);
           });
+      }else{
+        setdeleteloading(false)
       }
     });
   };
