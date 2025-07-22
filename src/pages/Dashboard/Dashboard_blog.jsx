@@ -180,6 +180,8 @@ const Dashboard_blog = () => {
           .catch((err) => {
             console.log(err);
           });
+      }else{
+        setloading(false)
       }
     });
   };
