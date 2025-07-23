@@ -158,7 +158,7 @@ const Dashboard_blog = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`${URL}/blog_delete/${id}`, {
+        fetch(`${URL}/delete_blog/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
