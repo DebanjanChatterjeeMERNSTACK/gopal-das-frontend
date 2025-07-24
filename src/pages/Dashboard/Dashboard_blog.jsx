@@ -3,10 +3,12 @@ import Dashboard_header from "../../Dashboard/Header/Dashboard_header";
 import "./Dashboard.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const URL = import.meta.env.VITE_URL;
 
 const Dashboard_blog = () => {
+    const navigate = useNavigate();
   const [blogimage, setblogimage] = useState("");
   const [blogtitle, setblogtitle] = useState("");
   const [blogdesceiption, setblogdescription] = useState("");
@@ -329,7 +331,7 @@ const Dashboard_blog = () => {
                 ) : (
                   <tr>
                     <td colSpan="6" className="text-center text-danger">
-                      <strong>Oops! 😞 No contact data found.</strong>
+                      <strong>Oops! 😞 No blog data found.</strong>
                     </td>
                   </tr>
                 )}
