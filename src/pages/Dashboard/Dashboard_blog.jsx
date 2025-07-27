@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const URL = import.meta.env.VITE_URL;
 
 const Dashboard_blog = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [blogimage, setblogimage] = useState("");
   const [blogtitle, setblogtitle] = useState("");
   const [blogdesceiption, setblogdescription] = useState("");
@@ -176,14 +176,14 @@ const Dashboard_blog = () => {
                 confirmButtonText: "Ok",
               });
               fetchdata();
-              setloading(false)
+              setloading(false);
             }
           })
           .catch((err) => {
             console.log(err);
           });
-      }else{
-        setloading(false)
+      } else {
+        setloading(false);
       }
     });
   };
@@ -279,64 +279,68 @@ const Dashboard_blog = () => {
               </button>
             )}
           </form>
-          <div className="table-responsive">
-            <table className="table table-bordered mt-5 border-success">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Blog Image</th>
-                  <th scope="col">Blog Title</th>
-                  <th scope="col">Blog Description</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {loading ? (
-                  <tr>
-                    <td colSpan="6" className="text-center">
-                      <div className="d-flex justify-content-center align-items-center">
-                        <div className="spinner-border" role="status">
-                          <span className="visually-hidden">Loading...</span>
-                        </div>
+          <div className="container mt-5">
+            {loading ? (
+              <div
+                className="d-flex justify-content-center align-items-center"
+                style={{ height: "200px" }}
+              >
+                <div className="spinner-border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            ) : blog.length > 0 ? (
+              <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {blog.map((e, i) => (
+                  <div className="col" key={i}>
+                    <div className="card h-100 border-success shadow-sm">
+                      <div className="position-relative">
+                        <img
+                          src={e.blogImage}
+                          className="card-img-top"
+                          alt={e.blogTitle}
+                          style={{ height: "200px", objectFit: "cover" }}
+                        />
+                        <span className="position-absolute top-0 start-0 bg-success text-white px-2 py-1">
+                          #{i + 1}
+                        </span>
                       </div>
-                    </td>
-                  </tr>
-                ) : blog.length > 0 ? (
-                  blog.map((e, i) => (
-                    <tr key={i}>
-                      <th>{i + 1}</th>
-                      <td>
-                        <img src={e.blogImage} width={150} height={100} />
-                      </td>
-                      <td>{e.blogTitle}</td>
-                      <td>{e.blogDescription}</td>
-                      <td>
+                      <div className="card-body">
+                        <h5 className="card-title">{e.blogTitle}</h5>
+                        <p className="card-text text-muted">
+                          {e.blogDescription.length > 100
+                            ? `${e.blogDescription.substring(0, 100)}...`
+                            : e.blogDescription}
+                        </p>
+                      </div>
+                      <div className="card-footer bg-transparent d-flex justify-content-between">
                         <button
                           type="button"
-                          className="btn btn-primary me-2"
+                          className="btn btn-outline-primary"
                           onClick={() => handleEdit(e)}
+                          title="Edit"
                         >
-                          <FaEdit />
+                          <FaEdit className="me-1" /> Edit
                         </button>
                         <button
                           type="button"
-                          className="btn btn-danger"
+                          className="btn btn-outline-danger"
                           onClick={() => handleDelete(e._id)}
+                          title="Delete"
                         >
-                          <FaTrash />
+                          <FaTrash className="me-1" /> Delete
                         </button>
-                      </td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="6" className="text-center text-danger">
-                      <strong>Oops! 😞 No blog data found.</strong>
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center w-100 mt-5">
+                <h2 className="text-danger">Oops! 😞</h2>
+                <p className="fw-semibold">No blog found .</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

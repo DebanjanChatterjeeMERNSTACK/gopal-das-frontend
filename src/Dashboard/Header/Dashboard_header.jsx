@@ -37,16 +37,7 @@ const Dashboard_header = () => {
               end
               onClick={() => setIsMenuOpen(false)}
             >
-              Dashboard
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/admin/book"
-              className={({ isActive }) => (isActive ? "active-link" : "")}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Books
+             Books
             </NavLink>
           </li>
           <li>

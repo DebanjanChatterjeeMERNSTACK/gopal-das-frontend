@@ -39,8 +39,7 @@ const App = () => {
 
           <Route element={<Protected allowedRoles={["admin"]} />}>
             <Route path="/admin" element={<Layout />}>
-              <Route index element={<Dashboard />} /> {/* default /admin */}
-              <Route path="book" element={<Dashboard_book />} />
+              <Route index element={<Dashboard_book />} />
               <Route path="blog" element={<Dashboard_blog />} />
               <Route path="contact" element={<Dashboard_contact />} />
               <Route

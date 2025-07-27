@@ -145,7 +145,7 @@ const Dashboard_book = () => {
   };
 
   const handleDelete = (id) => {
-     setloading(true);
+    setloading(true);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -300,77 +300,82 @@ const Dashboard_book = () => {
             )}
           </form>
 
-          <div className="table-responsive">
-            <table className="table table-bordered mt-5 border-success">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Book Image</th>
-                  <th scope="col">Book Title</th>
-                  <th scope="col">Book PDF</th>
-                  <th scope="col">Book's Short Summery</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {loading ? (
-                  <tr>
-                    <td colSpan="6" className="text-center">
-                      <div className="d-flex justify-content-center align-items-center">
-                        <div className="spinner-border" role="status">
-                          <span className="visually-hidden">Loading...</span>
+          <div className="container mt-5">
+            {loading ? (
+              <div
+                className="d-flex justify-content-center align-items-center"
+                style={{ height: "200px" }}
+              >
+                <div className="spinner-border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            ) : book.length > 0 ? (
+              <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {book.map((e, i) => (
+                  <div className="col" key={i}>
+                    <div className="card h-100 border-success">
+                      <div className="card-header bg-transparent border-success">
+                        <h5 className="card-title text-center">
+                          {e.bookTitle}
+                        </h5>
+                      </div>
+                      <div className="card-body text-center">
+                        <img
+                          src={e.bookImage}
+                          className="card-img-top mb-3"
+                          alt={e.bookTitle}
+                          style={{
+                            width: "150px",
+                            height: "200px",
+                            objectFit: "fit",
+                          }}
+                        />
+                        <p className="card-text text-muted">
+                          {e.bookDescription.length > 100
+                            ? `${e.bookDescription.substring(0, 100)}...`
+                            : e.bookDescription}
+                        </p>
+                      </div>
+                      <div className="card-footer bg-transparent border-success d-flex justify-content-between align-items-center">
+                        <a
+                          href={e.bookPdf}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-outline-success"
+                        >
+                          <FaFilePdf className="me-2" />
+                          View PDF
+                        </a>
+                        <div>
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary me-2"
+                            onClick={() => handleEdit(e)}
+                            title="Edit"
+                          >
+                            <FaEdit />
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-outline-danger"
+                            onClick={() => handleDelete(e._id)}
+                            title="Delete"
+                          >
+                            <FaTrash />
+                          </button>
                         </div>
                       </div>
-                    </td>
-                  </tr>
-                ) : book.length > 0 ? (
-                  book.map((e, i) => {
-                    return (
-                      <>
-                        <tr key={i}>
-                          <th>{i + 1}</th>
-                          <td>
-                            <img src={e.bookImage} width={150} height={200} />
-                          </td>
-                          <td>{e.bookTitle}</td>
-                          <td>
-                            <a href={e.bookPdf} target="_blank">
-                              <FaFilePdf
-                                style={{ color: "green", fontSize: "25px" }}
-                              />
-                            </a>
-                          </td>
-                          <td>{e.bookDescription}</td>
-                          <td className="">
-                            <button
-                              type="button"
-                              className="btn btn-primary me-2"
-                              onClick={() => handleEdit(e)}
-                            >
-                              <FaEdit />
-                            </button>
-
-                            <button
-                              type="button"
-                              className="btn btn-danger"
-                              onClick={() => handleDelete(e._id)}
-                            >
-                              <FaTrash />
-                            </button>
-                          </td>
-                        </tr>
-                      </>
-                    );
-                  })
-                ) : (
-                  <tr>
-                    <td colSpan="6" className="text-center text-danger">
-                      <strong>Oops! 😞 No book data found.</strong>
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center w-100 mt-5">
+              <h2 className="text-danger">Oops! 😞</h2>
+              <p className="fw-semibold">No book found .</p>
+            </div>
+            )}
           </div>
         </div>
       </div>

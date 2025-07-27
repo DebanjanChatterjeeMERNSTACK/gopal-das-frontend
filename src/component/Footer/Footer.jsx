@@ -61,7 +61,8 @@ const Footer = () => {
           </li>
         </div>
         <div className="footer_comapany">
-          <h6>© 2025 Debanjan. Designed by SoftTech with ❤️.</h6>
+          <h6>© 2025. Website design by Debanjan with ❤️.</h6>
+
         </div>
       </div>
     </>
