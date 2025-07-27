@@ -41,15 +41,18 @@ const Blog = () => {
         <div className="blog_maxwidth">
           <h5>MY BLOG</h5>
           <h2>What I Do</h2>
-          <div className="blog_flex">
-            {loading ? (
-              <>
-                <div className="loader-wrapper">
-                  <div className="spinner-border text-success" role="status" />
-                </div>
-              </>
-            ) : blog.length > 0 ? (
-              blog.slice(0, 3).map((e, i) => {
+          {loading ? (
+            <>
+              <div className="d-flex justify-content-center">
+                <div
+                  className="spinner-border text-success"
+                  role="status"
+                ></div>
+              </div>
+            </>
+          ) : (
+            <div className="blog_flex">
+              {blog.slice(0, 3).map((e, i) => {
                 return (
                   <>
                     <NavLink to={`/blogs-details/${e._id}`} key={i}>
@@ -57,7 +60,7 @@ const Blog = () => {
                         <div>
                           <img src={e.blogImage} className="card_image" />
                         </div>
-                        <h3>{e.blogTitle.slice(0,20)}...</h3>
+                        <h3>{e.blogTitle.slice(0, 20)}...</h3>
                         <div className="blog_date">
                           <GoDiscussionOutdated className="date_icon" />
                           <i>{formatDate(e.Date)}</i>
@@ -70,14 +73,9 @@ const Blog = () => {
                     </NavLink>
                   </>
                 );
-              })
-            ) : (
-              <div className="text-center w-100 mt-5">
-                <h2 className="text-danger">Oops! 😞</h2>
-                <p className="fw-semibold">No video found in the gallery.</p>
-              </div>
-            )}
-          </div>
+              })}
+            </div>
+          )}
         </div>
       </div>
     </>
