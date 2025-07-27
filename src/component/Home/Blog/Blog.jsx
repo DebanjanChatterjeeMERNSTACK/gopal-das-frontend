@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import aboutimg from "../../../assets/writer.jpg";
 import "./Blog.css";
 import { GoDiscussionOutdated } from "react-icons/go";
 import { NavLink } from "react-router-dom";
+const URL = import.meta.env.VITE_URL;
 const Blog = () => {
+  const [blog, setblog] = useState([]);
+  const [loading, setloading] = useState(false);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = date.toLocaleString("default", { month: "short" });
+    const year = date.getFullYear();
+    return `${day} ${month}, ${year}`;
+  };
+
+  useEffect(() => {
+    setloading(true);
+    fetch(`${URL}/get_all_blog`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.data);
+        if (data.status === 200) {
+          setblog(data.data);
+          setloading(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setloading(false);
+      });
+  }, []);
+
   return (
     <>
       <div className="blog_contaner">
@@ -11,29 +42,41 @@ const Blog = () => {
           <h5>MY BLOG</h5>
           <h2>What I Do</h2>
           <div className="blog_flex">
-            {[1, 2, 3].map(() => {
-              return (
-                <>
-                  <NavLink to={"/blogs-details/hhjhjvbhjhj"}>
-                    <div className="card">
-                      <div>
-                        <img src={aboutimg} className="card_image" />
+            {loading ? (
+              <>
+                <div className="loader-wrapper">
+                  <div className="spinner-border text-success" role="status" />
+                </div>
+              </>
+            ) : blog.length > 0 ? (
+              blog.slice(0, 3).map((e, i) => {
+                return (
+                  <>
+                    <NavLink to={`/blogs-details/${e._id}`} key={i}>
+                      <div className="card">
+                        <div>
+                          <img src={e.blogImage} className="card_image" />
+                        </div>
+                        <h3>{e.blogTitle.slice(0,20)}...</h3>
+                        <div className="blog_date">
+                          <GoDiscussionOutdated className="date_icon" />
+                          <i>{formatDate(e.Date)}</i>
+                        </div>
+                        <p>
+                          {e.blogDescription.slice(0, 150)}{" "}
+                          <strong>Read More...</strong>
+                        </p>
                       </div>
-                      <h3>This US States Test Doesn't End Until</h3>
-                      <div className="blog_date">
-                        <GoDiscussionOutdated className="date_icon" />
-                        <i>May 12, 2020</i>
-                      </div>
-                      <p>
-                        Primo in altis pelle alumnae Lorem markdownum obvius in
-                        seque opus, est bicorni forte; laeva{" "}
-                        <strong>Read More...</strong>
-                      </p>
-                    </div>
-                  </NavLink>
-                </>
-              );
-            })}
+                    </NavLink>
+                  </>
+                );
+              })
+            ) : (
+              <div className="text-center w-100 mt-5">
+                <h2 className="text-danger">Oops! 😞</h2>
+                <p className="fw-semibold">No video found in the gallery.</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -306,7 +306,9 @@ const Dashboard_blog = () => {
                         </span>
                       </div>
                       <div className="card-body">
-                        <h5 className="card-title">{e.blogTitle}</h5>
+                        <h5 className="card-title"> {e.blogTitle.length > 20
+                            ? `${e.blogTitle.substring(0, 20)}...`
+                            : e.blogTitle}</h5>
                         <p className="card-text text-muted">
                           {e.blogDescription.length > 100
                             ? `${e.blogDescription.substring(0, 100)}...`
