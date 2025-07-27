@@ -1,10 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Book_details.css";
 import { MdDateRange } from "react-icons/md";
 import { FaRegFilePdf } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
+import { NavLink, useParams } from "react-router-dom";
 
+const URL = import.meta.env.VITE_URL;
 const Book_details = () => {
+  const id = useParams().id;
+  const [bookdetails, setbookdetails] = useState(null);
+  const [loading, setloading] = useState(false);
+
+
+  const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = date.toLocaleString('default', { month: 'short' });
+  const year = date.getFullYear();
+  return `${day} ${month}, ${year}`;
+};
+
+  useEffect(() => {
+    setloading(true);
+    fetch(`${URL}/get_id_book/${id}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.data);
+        if (data.status === 200) {
+          setbookdetails(data.data);
+          setloading(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setloading(false);
+      });
+  }, []);
+
   return (
     <div className="bookdel_contaner">
       <div className="bgimage">
@@ -15,7 +49,7 @@ const Book_details = () => {
         <div className="bookdel_grid">
           <div className="bookdel_img">
             <img
-              src="https://m.media-amazon.com/images/I/71sBtM3Yi5L._SY425_.jpg"
+              src={bookdetails?.bookImage}
               alt="Book Cover"
               width={200}
               height={300}
@@ -23,20 +57,23 @@ const Book_details = () => {
           </div>
 
           <div className="bookdel_contant">
-            <h2>The Power of Your Subconscious Mind</h2>
+            <h2>{bookdetails?.bookTitle}</h2>
             <div>
               <div>
                 <MdDateRange />
-                <span>20 Aug, 1999</span>
+                <span>{formatDate(bookdetails?.Date)}</span>
               </div>
               <div>
                 <FaRegFilePdf />
-                <span>10 pages</span>
+                <span>{bookdetails?.bookPages?.length} pages</span>
               </div>
             </div>
             <div>
-              <button className="btn2">Read Book</button>
-              <button className="btn1"><FiDownload/></button>
+              <NavLink to={`/book-details/${id}/readbook/${id}`}><button className="btn2">Read Book</button></NavLink>
+              <a href={bookdetails?.bookPdf} download={true} target="_blank"><button className="btn1">
+                <FiDownload />
+              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -44,12 +81,7 @@ const Book_details = () => {
         <div>
           <h3>Short Summary</h3>
           <p>
-            "The Power of Your Subconscious Mind" by Dr. Joseph Murphy is a
-            timeless self-help classic that explores the incredible power of
-            the subconscious. It emphasizes how positive thoughts, visualizations,
-            and affirmations can influence our life outcomes. By understanding
-            how the subconscious operates, readers can unlock better health,
-            wealth, and relationships through mental programming and belief.
+            {bookdetails?.bookDescription}
           </p>
         </div>
       </div>

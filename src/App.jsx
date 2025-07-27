@@ -17,6 +17,8 @@ import Dashboard_videogallery from "./pages/Dashboard/Dashboard_videogallery";
 import Dashboard_imagegallery from "./pages/Dashboard/Dashboard_imagegallery";
 import Layout from "./layout/Layout";
 import Protected from "./utils/Protected";
+import PdfFlipBook from "./component/ReadBook/Read_Book";
+import ReadBook from "./pages/ReadBook";
 
 const App = () => {
   return (
@@ -26,6 +28,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/book" element={<Book />} />
           <Route path="/book-details/:id" element={<Books_details />} />
+          <Route path="/book-details/:id/readbook/:id" element={<ReadBook />} />
           <Route path="/image-gallery" element={<ImageGallery />} />
           <Route path="/video-gallery" element={<VideoGallery />} />
           <Route path="/blogs" element={<BlogAll />} />

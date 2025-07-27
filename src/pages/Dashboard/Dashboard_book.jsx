@@ -50,6 +50,7 @@ const Dashboard_book = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
+      setloading(true);
       const formdata = new FormData();
       formdata.append("book_image", bookimage);
       formdata.append("bookTitle", booktitle);
@@ -265,12 +266,12 @@ const Dashboard_book = () => {
                 htmlFor="exampleFormControlTextarea1"
                 className="form-label"
               >
-                Book Description <span className="text-danger">*</span>
+                Book Summery <span className="text-danger">*</span>
               </label>
               <textarea
                 className="form-control"
                 id="exampleFormControlTextarea1"
-                placeholder="Description"
+                placeholder="Short Summery"
                 required
                 value={bookdesceiption}
                 onChange={(e) => {
@@ -307,7 +308,7 @@ const Dashboard_book = () => {
                   <th scope="col">Book Image</th>
                   <th scope="col">Book Title</th>
                   <th scope="col">Book PDF</th>
-                  <th scope="col">Book Description</th>
+                  <th scope="col">Book's Short Summery</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -340,7 +341,7 @@ const Dashboard_book = () => {
                             </a>
                           </td>
                           <td>{e.bookDescription}</td>
-                          <td>
+                          <td className="">
                             <button
                               type="button"
                               className="btn btn-primary me-2"

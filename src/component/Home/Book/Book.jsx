@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,6 +6,8 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Import arrow 
 import "./Book.css";
 import { NavLink } from "react-router-dom";
 
+
+const URL = import.meta.env.VITE_URL;
 // Custom arrow components
 const NextArrow = ({ onClick }) => {
   return (
@@ -24,6 +26,27 @@ const PrevArrow = ({ onClick }) => {
 };
 
 const Book = () => {
+  const [book, setbook] = useState([]);
+   const [loading, setloading] = useState(false);
+  useEffect(() => {
+    setloading(true)
+    fetch(`${URL}/get_all_book`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.data);
+        if (data.status === 200) {
+          setbook(data.data);
+          setloading(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setloading(false);
+      });
+  }, []);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -98,13 +121,17 @@ const Book = () => {
       <div className="book_maxwidth">
         <h5>MY SERVICE</h5>
         <h2>What I Do</h2>
-        {[1, 2, 3, 4].length >= 5 ? (
+        {loading?(<div className="d-flex justify-content-center">
+         <div className="spinner-border text-success" role="status"></div>
+        </div>
+        ):(  
+        book.length >= 5 ? (
           <Slider {...settings}>
-            {[1, 2, 3, 4, 5, 6].map((item, index) => (
+            {book.map((item, index) => (
               <div key={index} className="book_img">
-                <NavLink to={"/book-details/jhlkjlk"}>
+                <NavLink to={`/book-details/${item._id}`}>
                   <img
-                    src="https://m.media-amazon.com/images/I/71sBtM3Yi5L._SY425_.jpg"
+                    src={item.bookImage}
                     width={200}
                     height={300}
                     alt={`Book ${index}`}
@@ -115,11 +142,11 @@ const Book = () => {
           </Slider>
         ) : (
           <div className="book_flex">
-            {[1, 2, 3, 4].map((item, index) => (
+            {book.map((item, index) => (
               <div key={index} className="book_img">
-                <NavLink to={"/book-details/jhlkjlk"}>
+                <NavLink to={`/book-details/${item._id}`}>
                   <img
-                    src="https://m.media-amazon.com/images/I/71sBtM3Yi5L._SY425_.jpg"
+                     src={item.bookImage}
                     width={200}
                     height={300}
                     alt={`Book ${index}`}
@@ -128,7 +155,8 @@ const Book = () => {
               </div>
             ))}
           </div>
-        )}
+        )
+      )}
       </div>
     </div>
   );
