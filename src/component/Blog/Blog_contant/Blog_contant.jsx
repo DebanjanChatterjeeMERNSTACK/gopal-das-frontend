@@ -1,7 +1,7 @@
 import "./Blog_contant.css";
 
 
-const Blog_contant = () => {
+const Blog_contant = ({data}) => {
   return (
     <>
       <div className="Blog_contant_contaner">
@@ -10,17 +10,7 @@ const Blog_contant = () => {
             <div>
             <h1>The Pleasure</h1>
             <p>
-              Lorem markdownum obvius in seque opus, est bicorni forte; laeva.
-              Iurant patria beatam semel communis et atra qua fugit, solet
-              invicti cui inter patulas regibus remolliat volumina sorori?
-              Quidem miscentem regna interea natura in adligat, aenum onere
-              placere lympha. Sunt tantum intentare exhortatus avidas Scythides
-              lacrimis imitatus prohibent terraeque donec ulterius thalamosque
-              fero comitantibus. Tela cervicem insiluit locis, falsa et umida
-              ulterius digitos excipiunt! Facto adversaque telum, stirpe? Sic et
-              illi praesepia agna esse quas siluere capax sim tangi iubebit
-              furtim cuncta, tutaeque ob utque stagni spargere. Totum silva
-              feramus haec terras lacus omnia talia!
+             {data}
             </p>
             </div>
           </div>
