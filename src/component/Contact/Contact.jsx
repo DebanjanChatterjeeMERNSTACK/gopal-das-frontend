@@ -86,7 +86,7 @@ const Contact = () => {
               </div>
               <div>
                 <p className="label">Phone</p>
-                <p>+123-4669-1234</p>
+                <p>+91 8117002658</p>
               </div>
             </div>
 
@@ -96,7 +96,7 @@ const Contact = () => {
               </div>
               <div>
                 <p className="label">Email</p>
-                <p>hello@flixta.com</p>
+                <p>gkdasmca@gmail.com</p>
               </div>
             </div>
 
@@ -107,9 +107,9 @@ const Contact = () => {
               <div>
                 <p className="label">Address</p>
                 <p>
-                  2096 New Market, New Road
+                 1/201, Mason Height, Nandanvihar, 
                   <br />
-                  North Carolina, USA
+                  Patia, Bhubaneswar, Odisha 
                 </p>
               </div>
             </div>

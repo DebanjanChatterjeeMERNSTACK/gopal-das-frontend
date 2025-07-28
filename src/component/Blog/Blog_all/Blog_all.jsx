@@ -90,7 +90,7 @@ const Blogall = () => {
               ) : (
                 <div className="text-center w-100 mt-5">
                   <h2 className="text-danger">Oops! 😞</h2>
-                  <p className="fw-semibold">No video found in the gallery.</p>
+                  <p className="fw-semibold">No blog found.</p>
                 </div>
               )}
             </div>
