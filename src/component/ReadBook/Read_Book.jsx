@@ -24,18 +24,24 @@ const PdfFlipBook = () => {
         <p>Loading Book...</p>
       ) : (
         <HTMLFlipBook
-          width={500}
-          height={700}
+        
+          width={550}
+          height={733}
           size="stretch"
           minWidth={300}
           maxWidth={800}
           minHeight={400}
-          maxHeight={1200}
+          maxHeight={1000}
           mobileScrollSupport={true}
-          showCover={true}
           className="flipbook"
+          showCover={false}
+          usePortrait={true}
+          startPage={0}
+          drawShadow={true}
+          flippingTime={500}
+          useMouseEvents={true}
         >
-          {images.slice(1,images.length).map((img, index) => (
+          {images.slice(1).map((img, index) => (
             <div
               key={index}
               className={`page ${index === 0 ? "cover-page" : ""}`}
