@@ -1,7 +1,7 @@
 /* Base styles */
 .header_container {
   width: 100%;
-  height: 80px;
+  height: 110px;
   background-color: #f2ffff;
   display: flex;
   justify-content: space-around;
@@ -93,7 +93,7 @@
 @media (max-width: 768px) {
   .header_menu {
     position: absolute;
-    top: 80px;
+    top: 110px;
     left: 0;
     width: 100%;
     background-color: #f2ffff;
@@ -129,7 +129,7 @@
 /* Small mobile devices */
 @media (max-width: 480px) {
   .header_container {
-    height: 70px;
+    height: 110px;
   }
 
   .header_logo h3 {
@@ -137,6 +137,6 @@
   }
 
   .header_menu {
-    top: 70px;
+    top: 110px;
   }
 }

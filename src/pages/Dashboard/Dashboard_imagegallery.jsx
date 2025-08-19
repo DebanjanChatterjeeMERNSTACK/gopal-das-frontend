@@ -174,7 +174,7 @@ const Dashboard_imagegallery = () => {
                 id="formFile"
                 required
                 multiple
-                accept=".jpg, .png"
+               
                 onChange={(e) => {
                   const selectedFiles = Array.from(e.target.files);
 

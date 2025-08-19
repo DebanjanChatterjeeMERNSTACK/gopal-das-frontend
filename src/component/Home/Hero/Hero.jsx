@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./Hero.css";
-import mainimage from "../../../assets/writer.jpg";
+import mainimage from "../../../assets/writer.png";
 import TextLoop from "react-text-loop";
 import { NavLink } from "react-router-dom";
 
@@ -47,7 +47,7 @@ const HeroSection = () => {
           <div className="hero_image">
             <img src={mainimage} />
             <div className="round_exp">
-              <h1>30+</h1>
+              <h1>22+</h1>
               <p>Year Experience</p>
             </div>
           </div>

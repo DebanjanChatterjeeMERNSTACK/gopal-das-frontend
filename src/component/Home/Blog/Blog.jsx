@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import aboutimg from "../../../assets/writer.jpg";
+import aboutimg from "../../../assets/writer.png";
 import "./Blog.css";
 import { GoDiscussionOutdated } from "react-icons/go";
 import { NavLink } from "react-router-dom";

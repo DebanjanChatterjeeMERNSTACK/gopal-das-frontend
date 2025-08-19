@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ImageGallery.css";
-import image from "../../assets/writer.jpg";
+import image from "../../assets/writer.png";
 import { RxCross2 } from "react-icons/rx";
 import bgimg from "../../assets/bgimg.jpg";
 

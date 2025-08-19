@@ -2,7 +2,7 @@ import React from "react";
 import "./Service.css";
 import book from "../../../assets/book.png";
 import ngo from "../../../assets/ngo.png";
-import writer from "../../../assets/writer.png";
+import writer from "../../../assets/paper.png";
 import spekar from "../../../assets/spekar.png";
 const Service = () => {
   const data = [

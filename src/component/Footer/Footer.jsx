@@ -1,13 +1,14 @@
 import React from "react";
 import "./Footer.css";
 import { NavLink } from "react-router-dom";
+import logo from "../../assets/logo.png"
 
 const Footer = () => {
   return (
     <>
       <div className="footer_contaner">
         <div className="footer_logo">
-          <h3>LOGO</h3>
+          <img src={logo} width={100} height={100}/>
         </div>
         <div className="footer_menu">
          <li>

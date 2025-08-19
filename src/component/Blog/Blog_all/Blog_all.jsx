@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GoDiscussionOutdated } from "react-icons/go";
-import aboutimg from "../../../assets/writer.jpg";
+// import aboutimg from "../../../assets/writer.jpg";
 import { NavLink } from "react-router-dom";
 const URL = import.meta.env.VITE_URL;
 const Blogall = () => {
@@ -53,7 +53,7 @@ const Blogall = () => {
             value={search}
             onChange={(e)=>setsearch(e.target.value)}
           />
-          <div className="book_flex">
+          <div className="">
             <div className="blog_flex">
               {loading ? (
                 <>

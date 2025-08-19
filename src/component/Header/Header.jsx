@@ -2,6 +2,7 @@ import "./Header.css";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import logo from "../../assets/logo.png"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Header = () => {
     <>
       <div className="header_container">
         <div className="header_logo">
-          <h3>LOGO</h3>
+           <img src={logo} width={100} height={100}/>
         </div>
 
         {/* Mobile menu button */}

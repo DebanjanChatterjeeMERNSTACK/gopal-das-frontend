@@ -24,8 +24,8 @@
 }
 
 .thumbnail {
-  width: 240px;
-  height: 200px;
+  width: 350px;
+  height: 100%;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 8px;

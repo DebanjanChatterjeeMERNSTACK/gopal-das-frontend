@@ -1,6 +1,6 @@
 import "./Blog_hero.css";
-import img from "../../../assets/writer.jpg";
-import img1 from "../../../assets/writer.jpg";
+import img from "../../../assets/writer.png";
+import img1 from "../../../assets/writer.png";
 import Blog_contant from "../Blog_contant/Blog_contant";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
