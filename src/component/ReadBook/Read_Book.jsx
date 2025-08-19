@@ -1,45 +1,51 @@
-// PdfFlipBook.js
 import React, { useEffect, useState } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
 import HTMLFlipBook from "react-pageflip";
 import "./Read_Book.css";
+import { useParams } from "react-router-dom";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.js",
-  import.meta.url
-).toString();
+const URL = import.meta.env.VITE_URL;
 
-const PdfFlipBook = ({ pdfUrl }) => {
-  const [numPages, setNumPages] = useState(null);
+const PdfFlipBook = () => {
+  const id = useParams().id;
+  const [images, setImages] = useState([]);
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-  };
+  useEffect(() => {
+    fetch(`${URL}/get_id_book/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setImages(data.data.bookPages);
+      })
+      .catch((err) => console.error("Error fetching users:", err));
+  }, []);
 
   return (
-    <div className="pdf-book-container">
-      <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
-        {numPages && (
-          <HTMLFlipBook
-            width={300}
-            height={500}
-            size="stretch"
-            minWidth={250}
-            maxWidth={500}
-            minHeight={400}
-            maxHeight={800}
-            showCover={false}
-            mobileScrollSupport={true}
-            className="flip-book"
-          >
-            {Array.from(new Array(numPages), (el, index) => (
-              <div className="pdf-page" key={`page_${index + 1}`}>
-                <Page pageNumber={index + 1} width={280} />
-              </div>
-            ))}
-          </HTMLFlipBook>
-        )}
-      </Document>
+    <div className="flipbook-wrapper">
+      {images.length === 0 ? (
+        <p>Loading Book...</p>
+      ) : (
+        <HTMLFlipBook
+          width={500}
+          height={700}
+          size="stretch"
+          minWidth={300}
+          maxWidth={800}
+          minHeight={400}
+          maxHeight={1200}
+          mobileScrollSupport={true}
+          showCover={true}
+          className="flipbook"
+        >
+          {images.map((img, index) => (
+            <div key={index} className="page">
+              <img
+                src={img}
+                alt={`Page ${index + 1}`}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </div>
+          ))}
+        </HTMLFlipBook>
+      )}
     </div>
   );
 };
