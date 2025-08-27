@@ -40,12 +40,12 @@ const PdfFlipBook = () => {
           flippingTime={500}
           useMouseEvents={true}
         >
-          {images.slice(1).map((img, index) => (
+          {images.map((img, index) => (
             <div key={index + 1} className="page">
               <img
                 src={img}
                 alt={`Page ${index + 1}`}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                style={{ width: "100%", height: "100%", objectFit: "fill" }}
               />
             </div>
           ))}

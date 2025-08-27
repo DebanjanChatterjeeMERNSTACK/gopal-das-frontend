@@ -4,6 +4,9 @@ import "./Hero.css";
 import mainimage from "../../../assets/writer.png";
 import TextLoop from "react-text-loop";
 import { NavLink } from "react-router-dom";
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaGithub, FaCodepen } from "react-icons/fa";
+import { FiYoutube } from "react-icons/fi";
+import { FaXTwitter } from "react-icons/fa6";
 
 const HeroSection = () => {
   return (
@@ -17,10 +20,57 @@ const HeroSection = () => {
               springConfig={{ stiffness: 180, damping: 8 }}
               fade={true}
             >
-              <h2>Contant Writer</h2>
-              <h2>Contant Writer</h2>
-              <h2>Contant Writer</h2>
+              <h2>An Author</h2>
+              <h2>IT Professional</h2>
+              <h2>Social Worker</h2>
             </TextLoop>
+
+            <div className="social-buttons">
+              <a
+                href="#"
+                className="social-buttons__button social-button social-button--facebook"
+                aria-label="Facebook"
+              >
+                <span className="social-button__inner">
+                  <FaFacebookF />
+                </span>
+              </a>
+
+              <a
+                href="https://www.youtube.com/@Author.Gopalkrushnadas"
+                className="social-buttons__button social-button social-button--linkedin"
+                aria-label="LinkedIn"
+              >
+                <span className="social-button__inner">
+                  <FiYoutube />
+                </span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/author.gopalkrushnadas?igsh=bWVyOTY3bngxejI0"
+                target="_blank"
+                rel="noreferrer"
+                className="social-buttons__button social-button social-button--instagram"
+                aria-label="Instagram"
+              >
+                <span className="social-button__inner">
+                  <FaInstagram />
+                </span>
+              </a>
+
+           
+              <a
+                href="https://x.com/authorgopaldas"
+                target="_blank"
+                rel="noreferrer"
+                className="social-buttons__button social-button social-button--codepen"
+                aria-label="CodePen"
+              >
+                <span className="social-button__inner">
+                  <FaXTwitter />
+                </span>
+              </a>
+            </div>
 
             <div className="">
               <NavLink to={"/book"}>
