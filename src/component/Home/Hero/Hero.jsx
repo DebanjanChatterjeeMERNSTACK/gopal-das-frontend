@@ -97,7 +97,7 @@ const HeroSection = () => {
           <div className="hero_image">
             <img src={mainimage} />
             <div className="round_exp">
-              <h1>22+</h1>
+              <h1>18+</h1>
               <p>Year Experience</p>
             </div>
           </div>
