@@ -19,6 +19,7 @@ import Layout from "./layout/Layout";
 import Protected from "./utils/Protected";
 import PdfFlipBook from "./component/ReadBook/Read_Book";
 import ReadBook from "./pages/ReadBook";
+import Dashboard_category from "./pages/Dashboard/Dashboard_category";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
           <Route element={<Protected allowedRoles={["admin"]} />}>
             <Route path="/admin" element={<Layout />}>
               <Route index element={<Dashboard_book />} />
+               <Route path="category" element={<Dashboard_category />} />
               <Route path="blog" element={<Dashboard_blog />} />
               <Route path="contact" element={<Dashboard_contact />} />
               <Route
