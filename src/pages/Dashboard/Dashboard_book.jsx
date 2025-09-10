@@ -13,7 +13,9 @@ const Dashboard_book = () => {
   const [booktitle, setbooktitle] = useState("");
   const [bookpdf, setbookpdf] = useState("");
   const [bookdesceiption, setbookdescription] = useState("");
+  const [category, setcategory] = useState("");
   const [book, setbook] = useState([]);
+  const [categorydata,setcategorydata]=useState([])
   const [id, setid] = useState("");
   const [key, setkey] = useState(Date.now());
   const [preview, setpreview] = useState("");
@@ -43,8 +45,32 @@ const Dashboard_book = () => {
       });
   };
 
+  const fetchcategory = () => {
+    setloading(true);
+    fetch(`${URL}/get_category`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.data);
+        if (data.status === 200) {
+          setcategorydata(data.data);
+          setloading(false);
+        } else if (data.text === "Invalid Token") {
+          navigate("/login");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setloading(false);
+      });
+  };
+
   useEffect(() => {
     fetchdata();
+    fetchcategory()
   }, []);
 
   const handleSubmit = (e) => {
@@ -56,6 +82,7 @@ const Dashboard_book = () => {
       formdata.append("bookTitle", booktitle);
       formdata.append("book_pdf", bookpdf);
       formdata.append("bookDescription", bookdesceiption);
+      formdata.append("categoryName", category);
       if (toggal) {
         console.log(formdata, "update");
         fetch(`${URL}/update_book/${id}`, {
@@ -79,6 +106,7 @@ const Dashboard_book = () => {
               setpreview("");
               setbookimage("");
               setbookdescription("");
+              setcategory("");
               setbooktitle("");
               setbookpdf("");
               setkey(Date.now());
@@ -111,6 +139,7 @@ const Dashboard_book = () => {
               setpreview("");
               setbookimage("");
               setbookdescription("");
+              setcategory("");
               setbooktitle("");
               setbookpdf("");
               setkey(Date.now());
@@ -142,6 +171,7 @@ const Dashboard_book = () => {
     setpreview(data.bookImage);
     setbooktitle(data.bookTitle);
     setbookdescription(data.bookDescription);
+    setcategory(data.categoryName);
   };
 
   const handleDelete = (id) => {
@@ -190,6 +220,7 @@ const Dashboard_book = () => {
     setbookpdf("");
     setbooktitle("");
     setbookdescription("");
+    setcategory("");
   };
 
   return (
@@ -246,6 +277,24 @@ const Dashboard_book = () => {
                   setbooktitle(e.target.value);
                 }}
               />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="formFile" className="form-label">
+                Book Category <span className="text-danger">*</span>
+              </label>
+              <select
+                className="form-select form-control"
+                value={category}
+                onChange={(e) => setcategory(e.target.value)}
+              >
+                <option defaultValue={""}>Open this select category</option>
+                
+               {
+                categorydata && categorydata.map((e)=>{
+                  return <option value={e.categoryTitle}>{e.categoryTitle}</option>
+                })
+               }
+              </select>
             </div>
             <div className="mb-3">
               <label htmlFor="formFile" className="form-label">
@@ -317,7 +366,7 @@ const Dashboard_book = () => {
                     <div className="card h-100 border-success">
                       <div className="card-header bg-transparent border-success">
                         <h5 className="card-title text-center">
-                          {e.bookTitle}
+                          {e.bookTitle}-({e.categoryName})
                         </h5>
                       </div>
                       <div className="card-body text-center">
@@ -372,9 +421,9 @@ const Dashboard_book = () => {
               </div>
             ) : (
               <div className="text-center w-100 mt-5">
-              <h2 className="text-danger">Oops! 😞</h2>
-              <p className="fw-semibold">No book found .</p>
-            </div>
+                <h2 className="text-danger">Oops! 😞</h2>
+                <p className="fw-semibold">No book found .</p>
+              </div>
             )}
           </div>
         </div>
