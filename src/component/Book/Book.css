@@ -38,3 +38,22 @@
 .book_flex img{
     border-radius: 10px;
 }
+.bookall_category{
+    display: flex;
+    justify-content: space-around;
+}
+
+.bookall_category button{
+  background-color: #b4fbff;
+  color: #00939b;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  padding-right: 20px;
+  border-radius: 5px;
+  border: 1px solid #62f7ff;
+  margin-top: 20px ;
+}
+

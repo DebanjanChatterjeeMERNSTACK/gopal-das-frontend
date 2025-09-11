@@ -70,10 +70,10 @@ const Book_details = () => {
             </div>
             <div>
               <NavLink to={`/book-details/${id}/readbook/${id}`}><button className="btn2">Read Book</button></NavLink>
-              <a href={bookdetails?.bookPdf} download={true} target="_blank"><button className="btn1">
+              {/* <a href={bookdetails?.bookPdf} download={true} target="_blank"><button className="btn1">
                 <FiDownload />
               </button>
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

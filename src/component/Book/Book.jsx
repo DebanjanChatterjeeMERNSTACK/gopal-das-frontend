@@ -6,9 +6,27 @@ import { NavLink } from "react-router-dom";
 const URL = import.meta.env.VITE_URL;
 const Book = () => {
   const [search, setsearch] = useState("");
-
+  const [category, setcategory] = useState([]);
   const [book, setbook] = useState([]);
   const [loading, setloading] = useState(false);
+
+  useEffect(() => {
+    setloading(true);
+    fetch(`${URL}/get_all_category`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 200) {
+          setcategory(data.data);
+          setloading(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setloading(false);
+      });
+  }, []);
 
   useEffect(() => {
     setloading(true);
@@ -28,6 +46,41 @@ const Book = () => {
       });
   }, [search]);
 
+  const handleClick = (id="all") => {
+    setloading(true);
+    if (id === "all") {
+      fetch(`${URL}/get_all_book`, {
+        method: "GET",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === 200) {
+            setbook(data.data);
+            setloading(false);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setloading(false);
+        });
+    } else {
+      fetch(`${URL}/get_book/${id}`, {
+        method: "GET",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === 200) {
+            setbook(data.data);
+            setloading(false);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setloading(false);
+        });
+    }
+  };
+
   return (
     <>
       <div className="bookall_contaner">
@@ -42,6 +95,19 @@ const Book = () => {
             value={search}
             onChange={(e) => setsearch(e.target.value)}
           />
+
+          <div className="bookall_category">
+            <button onClick={() => handleClick("all")}>All</button>
+            {category.map((e) => {
+              return (
+                <>
+                  <button onClick={() => handleClick(e.categoryTitle)}>
+                    {e.categoryTitle}
+                  </button>
+                </>
+              );
+            })}
+          </div>
           <div className="book_flex">
             {loading ? (
               <>
