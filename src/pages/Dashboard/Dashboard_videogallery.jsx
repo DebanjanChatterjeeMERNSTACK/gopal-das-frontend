@@ -29,7 +29,7 @@ const Dashboard_videogallery = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+         
           if (data.status == 200) {
             setloading(false);
             Swal.fire({
@@ -64,7 +64,7 @@ const Dashboard_videogallery = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+       
         if (data.status === 200) {
           setvideodata(data.data);
           setloading(false);

@@ -34,7 +34,7 @@ const Contact = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+         
           if (data.status == 200) {
             setloading(false);
             Swal.fire({

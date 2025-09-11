@@ -31,7 +31,7 @@ const Dashboard_book = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+      
         if (data.status === 200) {
           setbook(data.data);
           setloading(false);
@@ -54,7 +54,7 @@ const Dashboard_book = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+      
         if (data.status === 200) {
           setcategorydata(data.data);
           setloading(false);
@@ -84,7 +84,7 @@ const Dashboard_book = () => {
       formdata.append("bookDescription", bookdesceiption);
       formdata.append("categoryName", category);
       if (toggal) {
-        console.log(formdata, "update");
+    
         fetch(`${URL}/update_book/${id}`, {
           method: "PUT",
           headers: {
@@ -95,7 +95,7 @@ const Dashboard_book = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+       
             if (data.status == 200) {
               setloading(false);
               Swal.fire({
@@ -122,7 +122,7 @@ const Dashboard_book = () => {
             }
           });
       } else {
-        console.log(formdata, "create");
+       
         fetch(`${URL}/add_book`, {
           method: "POST",
           headers: {
@@ -133,7 +133,7 @@ const Dashboard_book = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+           
             if (data.status == 200) {
               setloading(false);
               setpreview("");

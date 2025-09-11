@@ -17,7 +17,6 @@ const Book = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
         if (data.status === 200) {
           setbook(data.data);
           setloading(false);

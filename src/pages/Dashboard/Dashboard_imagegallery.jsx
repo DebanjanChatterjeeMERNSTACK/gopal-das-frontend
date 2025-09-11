@@ -57,7 +57,7 @@ const Dashboard_imagegallery = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+         
           if (data.status == 200) {
             setloading(false);
             setPreviewFiles([]);
@@ -93,7 +93,7 @@ const Dashboard_imagegallery = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+       
         if (data.status === 200) {
           setImages(data.data);
           setloading(false);

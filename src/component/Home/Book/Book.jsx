@@ -4,8 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Import arrow icons
 import "./Book.css";
-import { NavLink } from "react-router-dom";
-
+import { data, NavLink } from "react-router-dom";
 
 const URL = import.meta.env.VITE_URL;
 // Custom arrow components
@@ -26,19 +25,35 @@ const PrevArrow = ({ onClick }) => {
 };
 
 const Book = () => {
+  const [category, setcategory] = useState([]);
   const [book, setbook] = useState([]);
-   const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(false);
   useEffect(() => {
-    setloading(true)
-    fetch(`${URL}/get_all_book`, {
+    setloading(true);
+    fetch(`${URL}/get_all_category`, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+        
         if (data.status === 200) {
-          setbook(data.data);
-          setloading(false);
+          setcategory(data.data);
+
+          data?.data?.forEach((cat) => {
+            fetch(`${URL}/get_book/${cat.categoryTitle}`, {
+              method: "GET",
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                setloading(false);
+                setbook((prev) => ({
+                  ...prev,
+                  [cat.categoryTitle]: data.data,
+                }));
+              });
+          });
+
+          
         }
       })
       .catch((err) => {
@@ -46,6 +61,8 @@ const Book = () => {
         setloading(false);
       });
   }, []);
+
+
 
   const settings = {
     dots: false,
@@ -117,48 +134,59 @@ const Book = () => {
   };
 
   return (
-    <div className="book_contaner">
-      <div className="book_maxwidth">
-        <h5>MY SERVICE</h5>
-        <h2>What I Do</h2>
-        {loading?(<div className="d-flex justify-content-center">
-         <div className="spinner-border text-success" role="status"></div>
-        </div>
-        ):(  
-        book.length >= 5 ? (
-          <Slider {...settings}>
-            {book.map((item, index) => (
-              <div key={index} className="book_img">
-                <NavLink to={`/book-details/${item._id}`}>
-                  <img
-                    src={item.bookImage}
-                    width={200}
-                    height={300}
-                    alt={`Book ${index}`}
-                  />
-                </NavLink>
+    <>
+      {category?.map((e,i) => {
+      
+        return (
+          <>
+            <div className={`book_contaner ${(i+1)%2 ===0 ?"book_section" :""}`} key={e._id}>
+              <div className="book_maxwidth">
+                <h5>MY Book</h5>
+                <h2>{e.categoryTitle}</h2>
+                {loading ? (
+                  <div className="d-flex justify-content-center">
+                    <div
+                      className="spinner-border text-success"
+                      role="status"
+                    ></div>
+                  </div>
+                ) : book[e.categoryTitle]?.length >= 5 ? (
+                  <Slider {...settings}>
+                    {book[e.categoryTitle]?.map((item, index) => (
+                      <div key={index} className="book_img">
+                        <NavLink to={`/book-details/${item._id}`}>
+                          <img
+                            src={item.bookImage}
+                            width={200}
+                            height={300}
+                            alt={`Book ${index}`}
+                          />
+                        </NavLink>
+                      </div>
+                    ))}
+                  </Slider>
+                ) : (
+                  <div className="book_flex">
+                    {book[e.categoryTitle]?.map((item, index) => (
+                      <div key={index} className="book_img">
+                        <NavLink to={`/book-details/${item._id}`}>
+                          <img
+                            src={item.bookImage}
+                            width={200}
+                            height={300}
+                            alt={`Book ${index}`}
+                          />
+                        </NavLink>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            ))}
-          </Slider>
-        ) : (
-          <div className="book_flex">
-            {book.map((item, index) => (
-              <div key={index} className="book_img">
-                <NavLink to={`/book-details/${item._id}`}>
-                  <img
-                     src={item.bookImage}
-                    width={200}
-                    height={300}
-                    alt={`Book ${index}`}
-                  />
-                </NavLink>
-              </div>
-            ))}
-          </div>
-        )
-      )}
-      </div>
-    </div>
+            </div>
+          </>
+        );
+      })}
+    </>
   );
 };
 

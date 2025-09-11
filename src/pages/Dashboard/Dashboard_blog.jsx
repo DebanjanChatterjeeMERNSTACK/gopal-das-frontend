@@ -28,7 +28,7 @@ const Dashboard_blog = () => {
       formdata.append("blogTitle", blogtitle);
       formdata.append("blogDescription", blogdesceiption);
       if (toggal) {
-        // console.log(formdata, "update");
+      
         fetch(`${URL}/update_blog/${id}`, {
           method: "PUT",
           headers: {
@@ -39,7 +39,7 @@ const Dashboard_blog = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+           
             if (data.status == 200) {
               setloading(false);
               setpreview("");
@@ -64,7 +64,7 @@ const Dashboard_blog = () => {
             }
           });
       } else {
-        // console.log(formdata, "create");
+       
         fetch(`${URL}/add_blog`, {
           method: "POST",
           headers: {
@@ -75,7 +75,7 @@ const Dashboard_blog = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+         
             if (data.status == 200) {
               setloading(false);
               setpreview("");
@@ -113,7 +113,7 @@ const Dashboard_blog = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+       
         if (data.status === 200) {
           setblog(data.data);
           setloading(false);
@@ -132,7 +132,7 @@ const Dashboard_blog = () => {
   }, []);
 
   const handleEdit = (data) => {
-    console.log(data);
+   
     settoggal(true);
     setid(data._id);
     setpreview(data.blogImage);

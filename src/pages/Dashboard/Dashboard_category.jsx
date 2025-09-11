@@ -22,7 +22,7 @@ const Dashboard_category = () => {
       setloading(true);
 
       if (toggal) {
-        // console.log(formdata, "update");
+       
         fetch(`${URL}/update_category/${id}`, {
           method: "PUT",
           headers: {
@@ -33,7 +33,7 @@ const Dashboard_category = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+         
             if (data.status == 200) {
               setloading(false);
               setcategorytitle("");
@@ -54,7 +54,7 @@ const Dashboard_category = () => {
             }
           });
       } else {
-        // console.log(formdata, "create");
+       
         fetch(`${URL}/add_category`, {
           method: "POST",
           headers: {
@@ -65,7 +65,7 @@ const Dashboard_category = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+          
             if (data.status == 200) {
               setloading(false);
               setcategorytitle("");
@@ -99,7 +99,7 @@ const Dashboard_category = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+      
         if (data.status === 200) {
           setcategory(data.data);
           setloading(false);
@@ -118,7 +118,7 @@ const Dashboard_category = () => {
   }, []);
 
   const handleEdit = (data) => {
-    console.log(data);
+   
     settoggal(true);
     setid(data._id);
     setcategorytitle(data.categoryTitle);

@@ -23,7 +23,7 @@ const Blog = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+       
         if (data.status === 200) {
           setblog(data.data);
           setloading(false);

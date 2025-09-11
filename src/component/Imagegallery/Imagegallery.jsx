@@ -17,7 +17,7 @@ const Imagegallery = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+     
         if (data.status === 200) {
           setimage(data.data);
           setloading(false);
