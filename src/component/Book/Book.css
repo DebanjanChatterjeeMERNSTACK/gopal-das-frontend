@@ -41,6 +41,7 @@
 .bookall_category{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .bookall_category button{

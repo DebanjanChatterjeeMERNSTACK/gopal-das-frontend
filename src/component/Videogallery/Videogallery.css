@@ -25,10 +25,6 @@
 .video_size {
   width: 100%;
   /* aspect-ratio: 16 / 9; */
-  background-color: #000;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .video_wrapper{

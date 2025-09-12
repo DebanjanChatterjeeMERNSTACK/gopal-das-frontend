@@ -23,6 +23,20 @@ const Videogallery = () => {
       });
   }, []);
 
+  // Load Twitter script once and re-parse when video changes
+  useEffect(() => {
+    if (video.length > 0) {
+      if (window.twttr && window.twttr.widgets) {
+        window.twttr.widgets.load();
+      } else {
+        const script = document.createElement("script");
+        script.src = "https://platform.twitter.com/widgets.js";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    }
+  }, [video]);
+
   return (
     <div className="videogallery_container">
       <div className="bgimage">
