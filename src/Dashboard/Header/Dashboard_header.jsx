@@ -59,6 +59,15 @@ const Dashboard_header = () => {
               Category
             </NavLink>
           </li>
+           <li>
+            <NavLink
+              to="/admin/comment"
+              className={({ isActive }) => (isActive ? "active-link" : "")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Comments
+            </NavLink>
+          </li>
           <li>
             <NavLink
               to="/admin/image-gallery"

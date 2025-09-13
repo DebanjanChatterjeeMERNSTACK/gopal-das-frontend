@@ -20,6 +20,7 @@ import Protected from "./utils/Protected";
 import PdfFlipBook from "./component/ReadBook/Read_Book";
 import ReadBook from "./pages/ReadBook";
 import Dashboard_category from "./pages/Dashboard/Dashboard_category";
+import Dashboard_comments from "./pages/Dashboard/Dashboard_comments";
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
                <Route path="category" element={<Dashboard_category />} />
               <Route path="blog" element={<Dashboard_blog />} />
               <Route path="contact" element={<Dashboard_contact />} />
+               <Route path="comment" element={<Dashboard_comments />} />
               <Route
                 path="video-gallery"
                 element={<Dashboard_videogallery />}
