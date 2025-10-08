@@ -141,7 +141,7 @@ const Book = () => {
           <>
             <div className={`book_contaner ${(i+1)%2 ===0 ?"book_section" :""}`} key={e._id}>
               <div className="book_maxwidth">
-                <h5>MY Book</h5>
+                <h5>BOOK</h5>
                 <h2>{e.categoryTitle}</h2>
                 {loading ? (
                   <div className="d-flex justify-content-center">

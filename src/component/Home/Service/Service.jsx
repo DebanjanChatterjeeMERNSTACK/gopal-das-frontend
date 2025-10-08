@@ -7,23 +7,23 @@ import spekar from "../../../assets/spekar.png";
 const Service = () => {
   const data = [
     {
-      title: "good book reader",
-      contant: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Ri",
+      title: "Passionate Reader",
+      contant: "I am a lifelong reader with a deep love for literature. Books have shaped my thinking and continue to inspire my writing. Reading widely helps me stay connected with ideas, emotions, and the pulse of society.",
       img: book,
     },
     {
-      title: "good ngo support",
-      contant: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Ri",
+      title: "NGO & Social Work",
+      contant: "As founder of the UIS Cancer Foundation Charitable Trust, I’ve worked with IT professionals and volunteers to reach 6,000+ people, support 334 cancer survivors, and organize 21 awareness programs across Odisha.",
       img: ngo,
     },
     {
-      title: "good writer ",
-      contant: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Ri",
+      title: "Author & Writer ",
+      contant: "I love connecting with people through words. As a speaker, I share thoughts on literature, social issues, and life lessons, aiming to inspire and guide others while creating a positive impact.",
       img: writer,
     },
     {
-      title: "good spakar",
-      contant: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Ri",
+      title: "Speaker & Motivator",
+      contant: "I love connecting with people through words. As a speaker, I share thoughts on literature, social issues, and life lessons, inspiring and guiding others while reaching hearts and creating a positive impact.",
       img: spekar,
     },
   ];
@@ -31,7 +31,7 @@ const Service = () => {
     <>
       <div className="service_contaner">
         <div className="service_maxwidth">
-          <h5>MY SERVICE</h5>
+          <h5>SERVICE</h5>
           <h2>What I Do</h2>
           <div className="service_flex">
             {data.map((e, i) => {

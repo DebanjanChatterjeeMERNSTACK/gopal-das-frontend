@@ -7,8 +7,8 @@ const Podcast = () => {
     <>
       <div className="podcast_contaner">
         <div className="podcast_maxwidth">
-          <h5>MY SERVICE</h5>
-          <h2>What I Do</h2>
+          <h5>PODCAST</h5>
+          <h2>The Author’s Journey</h2>
           <div className="podcat_video">
             <iframe
               

@@ -12,25 +12,25 @@ const About = () => {
           </div>
           <div className="about_contant">
             <h6>ABOUT ME</h6>
-            <h1>I’m Angelina Jolie, Expert Yoga Trainer since 2000</h1>
+            <h1>Stories That Touch Souls</h1>
             <p>
-              Contrary to popular belief, Lorem Ipsum is not simply random text.
-              It has roots in a piece of classical Latin literature from 45 BC,
-              making it over 2000 years old. Richard McClintock, a Latin
-              professor at Hampden-Sydney College in Virginia, looked up one of
-              the more obscure Latin words, consectetur, from a Lorem Ipsum
-              passage, and going through the cites of the word in classical
-              literature, discovered the undoubtable source. Lorem Ipsum comes
-              from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
-              Malorum" (The Extremes of Good and Evil) by Cicero, written in 45
-              BC. This book is a treatise on the theory of ethics, very popular
-              during the Renaissance. The first line of Lorem Ipsum, "Lorem
-              ipsum dolor sit amet..", comes from a line in section 1.10.32. The
-              standard chunk of Lorem Ipsum used since the 1500s is reproduced
-              below for those interested. Sections 1.10.32 and 1.10.33 from "de
-              Finibus Bonorum et Malorum" by Cicero are also reproduced in their
-              exact original form, accompanied by English versions from the 1914
-              translation by H. Rackham.
+              Over the years, I have written around 20–25 short stories, two
+              novels, and several poems in my native language. My works have
+              been warmly received by readers, and you can find all of them on
+              social media and here on this website—free to read and enjoy. In
+              2016, with the support of many IT professionals, I founded the UIS
+              Cancer Foundation Charitable Trust. Through this initiative, we
+              have reached more than 6,000 people, supported 334 cancer
+              survivors, and conducted 21 cancer awareness programs across
+              Odisha. My experiences in this journey made me realize the deeper
+              issues within our society, which inspired me to write more with a
+              purpose. I believe that literature has an unmatched power to bring
+              social change and guide society on the right path. Writing, for
+              me, is not just expression—it is service. When one novel
+              Neelatrushna was in my hand, every word carried a reflection of my
+              emotions and also sparked a subtle current of thought for change.
+              It reminded me once again why I write: to connect hearts and to
+              move society forward.
             </p>
           </div>
         </div>

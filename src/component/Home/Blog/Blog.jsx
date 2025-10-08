@@ -39,8 +39,8 @@ const Blog = () => {
     <>
       <div className="blog_contaner">
         <div className="blog_maxwidth">
-          <h5>MY BLOG</h5>
-          <h2>What I Do</h2>
+          <h5>BLOG</h5>
+          <h2>The Author’s Corner</h2>
           {loading ? (
             <>
               <div className="d-flex justify-content-center">
