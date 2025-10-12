@@ -24,16 +24,27 @@
 }
 
 .thumbnail {
-  width: 350px;
-  height: 100%;
+  width: 280px;
+  height: 400px;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 8px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
+.thumbnail2 {
+  width: 280px;
+  height:200px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+.thumbnail2:hover {
+  transform: scale(1.02);
+}
 
 .thumbnail:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /* Modal */

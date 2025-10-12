@@ -17,6 +17,7 @@ const Dashboard_imagegallery = () => {
 
   const [images, setImages] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
+  const [imageposition,setimageposition]=useState("")
 
   const fileInputRef = useRef();
 
@@ -43,6 +44,7 @@ const Dashboard_imagegallery = () => {
     try {
       setloading(true);
       const formdata = new FormData();
+      formdata.append("imagePosition",imageposition)
       galleryimage.forEach((e) => {
         formdata.append("gallery_Image", e);
       });
@@ -95,6 +97,7 @@ const Dashboard_imagegallery = () => {
       .then((data) => {
        
         if (data.status === 200) {
+          console.log(data)
           setImages(data.data);
           setloading(false);
         } else if (data.text === "Invalid Token") {
@@ -236,6 +239,20 @@ const Dashboard_imagegallery = () => {
                 </div>
               </div>
             )}
+             <div className="mb-3">
+              <label htmlFor="formFile" className="form-label">
+                Image Position <span className="text-danger">*</span>
+              </label>
+              <select
+                className="form-select form-control"
+                value={imageposition}
+                onChange={(e) => setimageposition(e.target.value)}
+              >
+                <option defaultValue={""}>Open this select Image Position</option>
+                 <option value={"Portrait Images"}>Portrait Images</option>
+                  <option value={"Landscape Images"}>Landscape Images</option>
+              </select>
+            </div>
 
             {loading ? (
               <button className="btn btn-success" disabled>
@@ -304,6 +321,9 @@ const Dashboard_imagegallery = () => {
                             Select
                           </label>
                         </div>
+                        <div>
+                          {img.imagePosition} 
+                          </div>
                       </div>
                     </div>
                   </div>
