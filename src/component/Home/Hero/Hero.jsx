@@ -27,9 +27,10 @@ const HeroSection = () => {
 
             <div className="social-buttons">
               <a
-                href="#"
+                href="https://www.facebook.com/people/Authorgopalkrushnadas/61579239047506/?sk=reels_tab"
                 className="social-buttons__button social-button social-button--facebook"
                 aria-label="Facebook"
+                target="_blank"
               >
                 <span className="social-button__inner">
                   <FaFacebookF />
@@ -38,6 +39,7 @@ const HeroSection = () => {
 
               <a
                 href="https://www.youtube.com/@Author.Gopalkrushnadas"
+                target="_blank"
                 className="social-buttons__button social-button social-button--linkedin"
                 aria-label="LinkedIn"
               >
