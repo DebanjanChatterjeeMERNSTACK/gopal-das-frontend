@@ -106,8 +106,8 @@ const Dashboard_comments = () => {
       const data = await res.json();
 
       if (data.status === 200) {
-        console.log(data)
-         Swal.fire(data.mess, data.text , data.mess);
+        console.log(data);
+        Swal.fire(data.mess, data.text, data.mess);
         setShowModal(false);
         setReplyText("");
         fetchData();
@@ -116,7 +116,7 @@ const Dashboard_comments = () => {
       }
     } catch (error) {
       console.error("Reply error:", error);
-      Swal.fire("Error","Something went wrong while adding reply." , "error");
+      Swal.fire("Error", "Something went wrong while adding reply.", "error");
     }
   };
 
@@ -126,8 +126,8 @@ const Dashboard_comments = () => {
         <h4 className="text-success mb-3">Comments</h4>
 
         <div className="table-responsive">
-          <table className="table table-bordered border-success">
-            <thead>
+          <table className="table table-bordered border border-success align-middle">
+            <thead >
               <tr>
                 <th>#</th>
                 <th>Name</th>
@@ -152,9 +152,21 @@ const Dashboard_comments = () => {
                     <td>{i + 1}</td>
                     <td>{e.commentsName}</td>
                     <td>{e.commentsEmail}</td>
-                    <td>{e.comments}</td>
-                    <td>
-                      {e.replyComment ? `${e.replyComment}` : "No reply yet"}
+                    <td
+                      style={{
+                        wordBreak: "break-word",
+                        whiteSpace: "pre-wrap",
+                      }}
+                    >
+                      {e.comments}
+                    </td>
+                    <td
+                      style={{
+                        wordBreak: "break-word",
+                        whiteSpace: "pre-wrap",
+                      }}
+                    >
+                      {e.replyComment ? e.replyComment : "No reply yet"}
                     </td>
                     <td className="d-flex gap-2">
                       <button

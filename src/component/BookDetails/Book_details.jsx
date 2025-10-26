@@ -12,11 +12,10 @@ const URL = import.meta.env.VITE_URL;
 const Book_details = () => {
   const id = useParams().id;
   const [bookdetails, setbookdetails] = useState(null);
-  const [loading, setloading] = useState(false); // 📌 For fetching book/comments
-  const [submitting, setSubmitting] = useState(false); // 📌 For comment submit
+  const [loading, setloading] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [allComments, setallComments] = useState([]);
 
-  // Comment form state
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [comments, setComments] = useState("");
@@ -29,7 +28,7 @@ const Book_details = () => {
     return `${day} ${month}, ${year}`;
   };
 
-  // 📌 Fetch book details
+  // Fetch book details
   useEffect(() => {
     setloading(true);
     fetch(`${URL}/get_id_book/${id}`)
@@ -46,7 +45,7 @@ const Book_details = () => {
       });
   }, [id]);
 
-  // 📌 Fetch comments
+  // Fetch comments
   const fetchComments = () => {
     setloading(true);
     fetch(`${URL}/get_comment/${id}`)
@@ -67,10 +66,10 @@ const Book_details = () => {
     fetchComments();
   }, [id]);
 
-  // 📌 Submit comment
+  // Submit comment
   const handleCommentSubmit = (e) => {
     e.preventDefault();
-    setSubmitting(true); // start loader
+    setSubmitting(true);
     const newComment = {
       commentsName: fullname,
       commentsEmail: email,
@@ -92,13 +91,13 @@ const Book_details = () => {
           icon: json.mess,
           confirmButtonText: "Ok",
         });
-        fetchComments(); // refresh comments after submit
+        fetchComments();
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        setSubmitting(false); // stop loader
+        setSubmitting(false);
       });
   };
 
@@ -109,7 +108,7 @@ const Book_details = () => {
       </div>
 
       <div className="bookdel_maxwidth">
-        {/* Loader for fetch */}
+        {/* Loader */}
         {loading && (
           <div className="d-flex justify-content-center my-5">
             <div className="spinner-border text-success" role="status">
@@ -120,6 +119,7 @@ const Book_details = () => {
 
         {!loading && bookdetails && (
           <>
+            {/* Book Info */}
             <div className="bookdel_grid">
               <div className="bookdel_img">
                 <img
@@ -146,21 +146,17 @@ const Book_details = () => {
                   <NavLink to={`/book-details/${id}/readbook/${id}`}>
                     <button className="btn2">Read Book</button>
                   </NavLink>
-                  {/* <a href={bookdetails?.bookPdf} download target="_blank">
-                    <button className="btn1">
-                      <FiDownload />
-                    </button>
-                  </a> */}
                 </div>
               </div>
             </div>
 
+            {/* Summary */}
             <div className="book-summary-box">
               <h3>Short Summary</h3>
               <p>{bookdetails?.bookDescription}</p>
             </div>
 
-            {/* 📌 Comment Form */}
+            {/* Comment Form */}
             <div className="comment-section mt-4 bg-white p-4 rounded shadow-sm">
               <h3>Leave a Comment</h3>
               <form onSubmit={handleCommentSubmit} className="comment-form">
@@ -217,33 +213,94 @@ const Book_details = () => {
               </form>
             </div>
 
-            {/* 📌 Show Comments */}
+            {/* Show Comments & Replies */}
             <div className="all-comments mt-4">
               <h3>All Comments</h3>
               {allComments.length > 0 ? (
                 allComments.map((c, idx) => (
-                  <div key={idx} className="comment-card bg-white p-3 rounded shadow-sm mb-3">
-                    <div>
-                      <FaRegComments
-                        size={"30"}
-                        style={{
-                          backgroundColor: "#b4fbff",
-                          color: "#00939b",
-                          padding: "4px",
-                          borderRadius: "50%",
-                          marginBottom: "2px",
-                        }}
-                      />
-                      <h5 className="fs-6">
-                        {c.commentsName}{" "}
-                        <small className="text-muted">({c.commentsEmail})</small>
-                      </h5>
+                  <div
+                    key={idx}
+                    className="comment-card bg-white p-3 rounded shadow-sm mb-3"
+                  >
+                    <FaRegComments
+                      size={"30"}
+                      style={{
+                        backgroundColor: "#b4fbff",
+                        color: "#00939b",
+                        padding: "4px",
+                        borderRadius: "50%",
+                        marginBottom: "2px",
+                      }}
+                    />
+                    {/* Main Comment */}
+                    <div className="d-flex align-items-center">
+                      <div className="ms-2">
+                        <h5 className="fs-6 mb-1">
+                          {c.commentsName}{" "}
+                          <small className="text-muted"  style={{
+                            wordBreak: "break-word",
+                            whiteSpace: "pre-wrap",
+                          }}>
+                            ({c.commentsEmail})
+                          </small>
+                        </h5>
+                        <p
+                          className="mb-1"
+                          style={{
+                            wordBreak: "break-word",
+                            whiteSpace: "pre-wrap",
+                          }}
+                        >
+                          {c.comments}
+                        </p>
+
+                        <small className="text-muted">
+                          {c.createdAt ? formatDate(c.createdAt) : ""}
+                        </small>
+                      </div>
                     </div>
 
-                    <p>{c.comments}</p>
-                    <small className="text-muted">
-                      {c.createdAt ? formatDate(c.createdAt) : ""}
-                    </small>
+                    {/* Admin Reply */}
+                    {c.replyComment &&
+                      (Array.isArray(c.replyComment)
+                        ? c.replyComment.length > 0
+                        : true) && (
+                        <div className="reply-box mt-3 ms-4 p-2 border-start border-2 border-success">
+                          <h6 className="text-success mb-2">
+                            Author Gopal Das Reply:
+                          </h6>
+                          {Array.isArray(c.replyComment) ? (
+                            c.replyComment.map((reply, rIndex) => (
+                              <div
+                                key={rIndex}
+                                className="bg-light rounded p-2 mb-2 shadow-sm"
+                              >
+                                <p
+                                  className="mb-1"
+                                  style={{
+                                    wordBreak: "break-word",
+                                    whiteSpace: "pre-wrap",
+                                  }}
+                                >
+                                  {reply}
+                                </p>
+                              </div>
+                            ))
+                          ) : (
+                            <div className="bg-light rounded p-2 shadow-sm">
+                              <p
+                                className="mb-1"
+                                style={{
+                                  wordBreak: "break-word",
+                                  whiteSpace: "pre-wrap",
+                                }}
+                              >
+                                {c.replyComment}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      )}
                   </div>
                 ))
               ) : (
