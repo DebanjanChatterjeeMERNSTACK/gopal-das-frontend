@@ -21,6 +21,7 @@ import PdfFlipBook from "./component/ReadBook/Read_Book";
 import ReadBook from "./pages/ReadBook";
 import Dashboard_category from "./pages/Dashboard/Dashboard_category";
 import Dashboard_comments from "./pages/Dashboard/Dashboard_comments";
+import ShareStory from "./pages/ShareStory";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/blogs" element={<BlogAll />} />
           <Route path="/blogs-details/:id" element={<Blog_details />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/share-your-story" element={<ShareStory />} />
           <Route path="/login" element={<Admin_login />} />
 
 
