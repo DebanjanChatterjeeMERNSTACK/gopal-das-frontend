@@ -127,10 +127,12 @@ const Dashboard_comments = () => {
 
         <div className="table-responsive">
           <table className="table table-bordered border border-success align-middle">
-            <thead >
+            <thead>
               <tr>
                 <th>#</th>
-                <th>Name</th>
+                <th>Book Name</th>
+                <th>Book Image</th>
+                <th>User Name</th>
                 <th>Email</th>
                 <th>Comments</th>
                 <th>Reply</th>
@@ -150,6 +152,14 @@ const Dashboard_comments = () => {
                 comments.map((e, i) => (
                   <tr key={e._id}>
                     <td>{i + 1}</td>
+                    <td>{e?.bookId?.bookTitle}</td>
+                    <td>
+                      <img
+                        src={e?.bookId?.bookImage}
+                        width={100}
+                        height={150}
+                      />
+                    </td>
                     <td>{e.commentsName}</td>
                     <td>{e.commentsEmail}</td>
                     <td

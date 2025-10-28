@@ -13,7 +13,7 @@ const Service = () => {
     },
     {
       title: "NGO & Social Work",
-      contant: "As founder of the UIS Cancer Foundation Charitable Trust, I’ve worked with IT professionals and volunteers to reach 6,000+ people, support 334 cancer survivors, and organize 21 awareness programs across Odisha.",
+      contant: "As an author and IT professional, I work with groups like the UIS Cancer Foundation and Ramadas Seba Sangathan, helping 6,000+ people, 334 cancer survivors, and supporting education for families in need.",
       img: ngo,
     },
     {
