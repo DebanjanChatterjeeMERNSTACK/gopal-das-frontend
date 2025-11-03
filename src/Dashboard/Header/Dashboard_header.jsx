@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
-import "./Dashboard_header.css";
+// import "./Dashboard_header.css";
 import logo from "../../assets/logo.png"
 
 const Dashboard_header = () => {
