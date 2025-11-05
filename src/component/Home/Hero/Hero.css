@@ -28,7 +28,7 @@
 .hero_contant h2 {
   font-size: 50px;
   font-weight: 500;
-  color: #008d94;
+  color: #278CFF;
 }
 /* From Uiverse.io by vinodjangid07 */
 .button {
@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
   padding: 10px 22px;
-  background-color: #008d94;
+  background-color: #278CFF;
   border: 8px solid #bbfcff;
   color: white;
   gap: 8px;
@@ -59,13 +59,7 @@
   width: 50px;
   height: 30px;
 }
-.button:hover {
-  border: 8px solid #bbfcff;
-  background-color: #1eadb4;
-}
-.button:active {
-  border: 5px solid #c0dfff;
-}
+
 .button:hover .svg svg {
   animation: jello-vertical 0.9s both;
   transform-origin: left;
@@ -114,7 +108,7 @@
   height: 190px;
   color: white;
   border-radius: 50%;
-  background-color: #008d94;
+  background-color: #278CFF;
   position: absolute;
   bottom: 25px;
   right: 300px;
@@ -138,7 +132,7 @@
   .hero_contant h2 {
     font-size: 42px;
     font-weight: 500;
-    color: #008d94;
+    color: #278CFF;
   }
   .hero_image img {
     width: 360px;
@@ -151,7 +145,7 @@
     height: 165px;
     color: white;
     border-radius: 50%;
-    background-color: #008d94;
+    background-color: #278CFF;
     position: absolute;
     bottom: 80px;
     right: 250px;
@@ -205,7 +199,7 @@
   .hero_contant h2 {
     font-size: 32px;
     font-weight: 500;
-    color: #008d94;
+    color: #278CFF;
   }
   .hero_image img {
     width: 300px;
@@ -218,7 +212,7 @@
     height: 155px;
     color: white;
     border-radius: 50%;
-    background-color: #008d94;
+    background-color: #278CFF;
     position: absolute;
     bottom: 100px;
     right: 200px;
@@ -233,7 +227,7 @@
     align-items: center;
     justify-content: center;
     padding: 5px 10px;
-    background-color: #008d94;
+    background-color: #278CFF;
     border: 8px solid #bbfcff;
     color: white;
     gap: 8px;
@@ -253,7 +247,7 @@
   .hero_contant h2 {
     font-size: 32px;
     font-weight: 500;
-    color: #008d94;
+    color: #278CFF;
   }
   .hero_image img {
     width: 300px;
@@ -266,7 +260,7 @@
     align-items: center;
     justify-content: center;
     padding: 5px 10px;
-    background-color: #008d94;
+    background-color: #278CFF;
     border: 8px solid #bbfcff;
     color: white;
     gap: 8px;
@@ -286,7 +280,7 @@
     height: 155px;
     color: white;
     border-radius: 50%;
-    background-color: #008d94;
+    background-color: #278CFF;
     position: absolute;
     bottom: 100px;
     right: 103px;
@@ -324,7 +318,7 @@
   .hero_contant h2 {
     font-size: 35px;
     font-weight: 500;
-    color: #008d94;
+    color: #278CFF;
   }
 
   .hero_image img {
@@ -339,7 +333,7 @@
     height: 150px;
     color: white;
     border-radius: 50%;
-    background-color: #008d94;
+    background-color: #278CFF;
     position: absolute;
     bottom: 20px;
     right: 280px;
@@ -382,7 +376,7 @@
   .hero_contant h2 {
     font-size: 35px;
     font-weight: 500;
-    color: #008d94;
+    color: #278CFF;
   }
 
   .hero_image img {
@@ -397,7 +391,7 @@
     height: 150px;
     color: white;
     border-radius: 50%;
-    background-color: #008d94;
+    background-color: #278CFF;
     position: absolute;
     bottom: 20px;
     right: 187px;
@@ -440,7 +434,7 @@
   .hero_contant h2 {
     font-size: 30px;
     font-weight: 500;
-    color: #008d94;
+    color: #278CFF;
   }
 
   .hero_image img {
@@ -455,7 +449,7 @@
     height: 150px;
     color: white;
     border-radius: 50%;
-    background-color: #008d94;
+    background-color: #278CFF;
     position: absolute;
     bottom: 20px;
     right: 150px;
@@ -475,7 +469,7 @@
     align-items: center;
     justify-content: center;
     padding: 8px 12px;
-    background-color: #008d94;
+    background-color: #278CFF;
     border: 8px solid #bbfcff;
     color: white;
     gap: 8px;
@@ -512,7 +506,7 @@
   width: 50px;
   height: 50px;
   text-decoration: none;
-  background-color: #00969e;
+  background-color: #278CFF;
 }
 
 .social-button__inner {
