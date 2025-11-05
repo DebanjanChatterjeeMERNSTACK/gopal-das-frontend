@@ -15,7 +15,7 @@
   text-align: center;
   padding-top: 50px;
   padding-bottom: 10px;
-  color: #008d94;
+  color: #278CFF;
 }
 .service_maxwidth h2 {
   text-align: center;
@@ -42,7 +42,7 @@
   
 }
 .service_box:hover{
-    outline: #008d94 1px solid;
+    outline: #278CFF 1px solid;
 }
 .service_box h1 {
   color: #000000;
