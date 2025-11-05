@@ -2,7 +2,7 @@
 .about_contaner{
     width: 100%;
     /* height: 100dvh; */
-    background-color: #f2ffff;
+    background-color: #e3f0ff;
 
 }
 .about_maxwidth{
@@ -39,7 +39,7 @@
     width: 600px;
 }
 .about_contant h6{
-    color: #008d94;
+    color: #278CFF;
 }
 .about_contant h1{
     font-weight: 600;
