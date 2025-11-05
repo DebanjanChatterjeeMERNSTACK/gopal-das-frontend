@@ -10,7 +10,7 @@
 }
 .footer_logo h3 {
   font-size: 1.5rem;
-  color: #278CFF;
+  color: #008d94;
   font-weight: 700;
 }
 .footer_menu {
@@ -25,7 +25,7 @@
   cursor: pointer;
 }
 .footer_menu li:hover {
-  color: #278CFF;
+  color: #008d94;
   transform: translateY(-2px);
 }
 .footer_comapany {
@@ -39,7 +39,7 @@
 
 
 .footer_menu li a.active-link {
-  color: #278CFF;
+  color: #008d94;
   font-weight: 600;
 }
 .footer_menu li a {

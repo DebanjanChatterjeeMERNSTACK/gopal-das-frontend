@@ -28,7 +28,7 @@
 .hero_contant h2 {
   font-size: 50px;
   font-weight: 500;
-  color: #278CFF;
+  color: #008d94;
 }
 /* From Uiverse.io by vinodjangid07 */
 .button {
@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
   padding: 10px 22px;
-  background-color: #278CFF;
+  background-color: #008d94;
   border: 8px solid #bbfcff;
   color: white;
   gap: 8px;
@@ -106,9 +106,9 @@
 .round_exp {
   width: 190px;
   height: 190px;
-  color: white;
+  /* color: white; */
   border-radius: 50%;
-  background-color: #278CFF;
+  /* background-color: #008d94; */
   position: absolute;
   bottom: 25px;
   right: 300px;
@@ -118,10 +118,10 @@
   justify-content: center;
   flex-direction: column;
 }
-.round_exp h1 {
+/* .round_exp h1 {
   font-size: 50px;
   font-weight: 600;
-}
+} */
 
 @media screen and (max-width: 944px) {
   .hero_contant h1 {
@@ -132,7 +132,7 @@
   .hero_contant h2 {
     font-size: 42px;
     font-weight: 500;
-    color: #278CFF;
+    color: #008d94;
   }
   .hero_image img {
     width: 360px;
@@ -143,9 +143,9 @@
   .round_exp {
     width: 165px;
     height: 165px;
-    color: white;
+    /* color: white; */
     border-radius: 50%;
-    background-color: #278CFF;
+    /* background-color: #008d94; */
     position: absolute;
     bottom: 80px;
     right: 250px;
@@ -199,7 +199,7 @@
   .hero_contant h2 {
     font-size: 32px;
     font-weight: 500;
-    color: #278CFF;
+    color: #008d94;
   }
   .hero_image img {
     width: 300px;
@@ -210,9 +210,9 @@
   .round_exp {
     width: 155px;
     height: 155px;
-    color: white;
+    /* color: white; */
     border-radius: 50%;
-    background-color: #278CFF;
+    /* background-color: #008d94; */
     position: absolute;
     bottom: 100px;
     right: 200px;
@@ -227,7 +227,7 @@
     align-items: center;
     justify-content: center;
     padding: 5px 10px;
-    background-color: #278CFF;
+    background-color: #008d94;
     border: 8px solid #bbfcff;
     color: white;
     gap: 8px;
@@ -247,7 +247,7 @@
   .hero_contant h2 {
     font-size: 32px;
     font-weight: 500;
-    color: #278CFF;
+    color: #008d94;
   }
   .hero_image img {
     width: 300px;
@@ -260,7 +260,7 @@
     align-items: center;
     justify-content: center;
     padding: 5px 10px;
-    background-color: #278CFF;
+    background-color: #008d94;
     border: 8px solid #bbfcff;
     color: white;
     gap: 8px;
@@ -278,9 +278,9 @@
   .round_exp {
     width: 155px;
     height: 155px;
-    color: white;
+    /* color: white; */
     border-radius: 50%;
-    background-color: #278CFF;
+    /* background-color: #008d94; */
     position: absolute;
     bottom: 100px;
     right: 103px;
@@ -318,7 +318,7 @@
   .hero_contant h2 {
     font-size: 35px;
     font-weight: 500;
-    color: #278CFF;
+    color: #008d94;
   }
 
   .hero_image img {
@@ -331,9 +331,9 @@
   .round_exp {
     width: 150px;
     height: 150px;
-    color: white;
+    /* color: white; */
     border-radius: 50%;
-    background-color: #278CFF;
+    /* background-color: #008d94; */
     position: absolute;
     bottom: 20px;
     right: 280px;
@@ -344,10 +344,10 @@
     flex-direction: column;
   }
 
-  .round_exp h1 {
+  /* .round_exp h1 {
     font-size: 40px;
     font-weight: 600;
-  }
+  } */
 }
 
 @media screen and (max-width: 440px) {
@@ -376,7 +376,7 @@
   .hero_contant h2 {
     font-size: 35px;
     font-weight: 500;
-    color: #278CFF;
+    color: #008d94;
   }
 
   .hero_image img {
@@ -389,9 +389,9 @@
   .round_exp {
     width: 150px;
     height: 150px;
-    color: white;
+    /* color: white; */
     border-radius: 50%;
-    background-color: #278CFF;
+    /* background-color: #008d94; */
     position: absolute;
     bottom: 20px;
     right: 187px;
@@ -402,10 +402,10 @@
     flex-direction: column;
   }
 
-  .round_exp h1 {
+  /* .round_exp h1 {
     font-size: 40px;
     font-weight: 600;
-  }
+  } */
 }
 
 @media screen and (max-width: 375px) {
@@ -434,7 +434,7 @@
   .hero_contant h2 {
     font-size: 30px;
     font-weight: 500;
-    color: #278CFF;
+    color: #008d94;
   }
 
   .hero_image img {
@@ -447,9 +447,9 @@
   .round_exp {
     width: 150px;
     height: 150px;
-    color: white;
+    /* color: white; */
     border-radius: 50%;
-    background-color: #278CFF;
+    /* background-color: #008d94; */
     position: absolute;
     bottom: 20px;
     right: 150px;
@@ -460,16 +460,16 @@
     flex-direction: column;
   }
 
-  .round_exp h1 {
+  /* .round_exp h1 {
     font-size: 40px;
     font-weight: 600;
-  }
+  } */
   .button {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 8px 12px;
-    background-color: #278CFF;
+    background-color: #008d94;
     border: 8px solid #bbfcff;
     color: white;
     gap: 8px;
@@ -506,7 +506,7 @@
   width: 50px;
   height: 50px;
   text-decoration: none;
-  background-color: #278CFF;
+  background-color: #008d94;
 }
 
 .social-button__inner {

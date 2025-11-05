@@ -1,7 +1,7 @@
 .podcast_contaner {
   width: 100%;
   /* height: 90vh; */
-  background-color: #e3f0ff;
+  background-color: #e6fdff;
 }
 .podcast_maxwidth {
   max-width: 1200px;
@@ -15,7 +15,7 @@
   text-align: center;
   padding-top: 50px;
   padding-bottom: 10px;
-  color: #278CFF;
+  color: #008d94;
 }
 .podcast_maxwidth h2 {
   text-align: center;

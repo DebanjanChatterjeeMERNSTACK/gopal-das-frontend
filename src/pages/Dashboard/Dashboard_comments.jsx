@@ -181,7 +181,7 @@ const Dashboard_comments = () => {
                     <td className="d-flex gap-2">
                       <button
                         type="button"
-                        className="btn btn-primary btn-sm"
+                        className="btn btn-success btn-sm"
                         onClick={() => handleReplyOpen(e._id, e.replyComment)}
                       >
                         <FaReply /> Reply

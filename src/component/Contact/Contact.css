@@ -19,13 +19,13 @@
 .contact-info {
   flex: 1;
   padding: 20px;
-  background-color: #e3f0ff;
+  background-color: #e6fdff;
   border-radius: 10px;
   max-width: 500px;
 }
 
 .contact-info h4 {
-  color: #278CFF;
+  color: #008d94;
   font-weight:600;
   margin-bottom: 10px;
 }
@@ -44,7 +44,7 @@
 }
 
 .icon-circle {
-  background-color: #278CFF;
+  background-color: #008d94;
   color: white;
   width: 45px;
   height: 45px;
@@ -88,7 +88,7 @@
 }
 .input-group input:focus,
 .input-group select:focus {
-  border: 1px solid #278CFF;
+  border: 1px solid #008d94;
   outline: none; /* optional for cleaner look */
 }
 .input-group input,
@@ -96,7 +96,7 @@
   transition: border 0.3s ease;
 }
 .textareacolor:focus {
-  border: 1px solid #278CFF;
+  border: 1px solid #008d94;
   outline: none; /* optional to remove blue glow */
 }
 textarea {
@@ -108,7 +108,7 @@ textarea {
 }
 
 .btn5 {
-  background: linear-gradient(90deg, #135299, #278CFF);
+  background: linear-gradient(90deg, #135299, #008d94);
   color: white;
   padding: 14px;
   border: none;

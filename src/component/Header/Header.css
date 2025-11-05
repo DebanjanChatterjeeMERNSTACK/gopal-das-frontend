@@ -2,7 +2,7 @@
 .header_container {
   width: 100%;
   height: 110px;
-  background-color: #e2efff;
+  background-color: #e6fdff;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -28,7 +28,7 @@
 }
 
 .header_menu li:hover {
-  color: #278cff;
+  color: #008d94;
 }
 
 /* Mobile menu button */
@@ -36,12 +36,12 @@
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #278cff;
+  color: #008d94;
 }
 
 /* Active link */
 .header_menu li a.active-link {
-  color: #278cff;
+  color: #008d94;
   font-weight: 600;
 }
 
@@ -51,13 +51,13 @@
 }
 
 .header_menu li a:hover:not(.active-link) {
-  color: #278cff;
+  color: #008d94;
   transform: translateY(-2px);
 }
 
 /* ✅ Share Your Story button */
 .share_btn {
-  background-color: #278cff;
+  background-color: #008d94;
   color: #fff;
   border: none;
   border-radius: 30px;
@@ -68,7 +68,7 @@
 }
 
 .share_btn:hover {
-  background-color: #278cff;
+  background-color: #008d94;
   transform: scale(1.05);
 }
 

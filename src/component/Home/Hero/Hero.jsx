@@ -4,6 +4,7 @@ import "./Hero.css";
 import mainimage from "../../../assets/writer.png";
 import TextLoop from "react-text-loop";
 import { NavLink, useNavigate } from "react-router-dom";
+import image from "../../../assets/image.png";
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -106,8 +107,7 @@ const HeroSection = () => {
           <div className="hero_image">
             <img src={mainimage} />
             <div className="round_exp">
-              <h1>18+</h1>
-              <p>Years Experience</p>
+              <img src={image} style={{width:"180px", height:"180px"}} />
             </div>
           </div>
         </div>

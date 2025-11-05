@@ -1,7 +1,7 @@
 .bookall_contaner{
     width: 100%;
     /* height: 100vh; */
-    background-color: #e3f0ff;
+    background-color: #e6fdff;
 }
 
 .bookall_maxwidth{
@@ -19,11 +19,11 @@
 .form-control{
     width: 100%;
     margin: auto;
-    border-color: #278CFF;
+    border-color: #008d94;
     /* background-color: #0b555a; */
 }
 .form-control::placeholder{
-    color: #278CFF;
+    color: #008d94;
 }
 
 .book_flex{
@@ -45,8 +45,8 @@
 }
 
 .bookall_category button{
-  background-color: #c2deff;
-  color: #278CFF;
+  background-color: #b7fbff;
+  color: #008d94;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 20px;
@@ -54,7 +54,7 @@
   font-weight: 500;
   padding-right: 20px;
   border-radius: 5px;
-  border: 1px solid #278CFF;
+  border: 1px solid #008d94;
   margin-top: 20px ;
 }
 

@@ -66,7 +66,7 @@ const Share = () => {
       {/* <Dashboard_header /> */}
       <div className="dashbord_contaner">
         <div className="dashbord_maxwidth">
-          <h4 className="text-primary">Story</h4>
+          <h4 className="text-success">Story</h4>
           <form onSubmit={handleSubmit}>
              <div className="mb-3">
               <label htmlFor="formFile" className="form-label">
@@ -151,11 +151,11 @@ const Share = () => {
               ></textarea>
             </div>
             {loading ? (
-              <button className="btn btn-primary" disabled>
+              <button className="btn btn-success" disabled>
                 <div className="spinner-border text-light" role="status"></div>
               </button>
             ) : (
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-success">
                 Submit Your Story
               </button>
             )}
