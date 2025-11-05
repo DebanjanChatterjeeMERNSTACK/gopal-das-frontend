@@ -198,7 +198,7 @@ const Book_details = () => {
 
                 <button
                   type="submit"
-                  className="btn btn-success"
+                  className="btn btn-primary"
                   disabled={submitting}
                 >
                   {submitting ? (
@@ -226,7 +226,7 @@ const Book_details = () => {
                       size={"30"}
                       style={{
                         backgroundColor: "#b4fbff",
-                        color: "#00939b",
+                        color: "#278CFF",
                         padding: "4px",
                         borderRadius: "50%",
                         marginBottom: "2px",
@@ -265,8 +265,8 @@ const Book_details = () => {
                       (Array.isArray(c.replyComment)
                         ? c.replyComment.length > 0
                         : true) && (
-                        <div className="reply-box mt-3 ms-4 p-2 border-start border-2 border-success">
-                          <h6 className="text-success mb-2">
+                        <div className="reply-box mt-3 ms-4 p-2 border-start border-2 border-primary">
+                          <h6 className="text-primary mb-2">
                             Author Gopal Das Reply:
                           </h6>
                           {Array.isArray(c.replyComment) ? (
