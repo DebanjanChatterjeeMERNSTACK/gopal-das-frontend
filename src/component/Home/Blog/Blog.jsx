@@ -23,7 +23,6 @@ const Blog = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-       
         if (data.status === 200) {
           setblog(data.data);
           setloading(false);
@@ -37,47 +36,49 @@ const Blog = () => {
 
   return (
     <>
-      <div className="blog_contaner">
-        <div className="blog_maxwidth">
-          <h5>BLOG</h5>
-          <h2>The Author’s Corner</h2>
-          {loading ? (
-            <>
-              <div className="d-flex justify-content-center">
-                <div
-                  className="spinner-border text-success"
-                  role="status"
-                ></div>
+      {blog.length > 0 ? (
+        <div className="blog_contaner">
+          <div className="blog_maxwidth">
+            <h5>BLOG</h5>
+            <h2>The Author’s Corner</h2>
+            {loading ? (
+              <>
+                <div className="d-flex justify-content-center">
+                  <div
+                    className="spinner-border text-success"
+                    role="status"
+                  ></div>
+                </div>
+              </>
+            ) : (
+              <div className="blog_flex">
+                {blog.slice(0, 3).map((e, i) => {
+                  return (
+                    <>
+                      <NavLink to={`/blogs-details/${e._id}`} key={i}>
+                        <div className="card">
+                          <div>
+                            <img src={e.blogImage} className="card_image" />
+                          </div>
+                          <h3>{e.blogTitle.slice(0, 20)}...</h3>
+                          <div className="blog_date">
+                            <GoDiscussionOutdated className="date_icon" />
+                            <i>{formatDate(e.Date)}</i>
+                          </div>
+                          <p>
+                            {e.blogDescription.slice(0, 150)}{" "}
+                            <strong>Read More...</strong>
+                          </p>
+                        </div>
+                      </NavLink>
+                    </>
+                  );
+                })}
               </div>
-            </>
-          ) : (
-            <div className="blog_flex">
-              {blog.slice(0, 3).map((e, i) => {
-                return (
-                  <>
-                    <NavLink to={`/blogs-details/${e._id}`} key={i}>
-                      <div className="card">
-                        <div>
-                          <img src={e.blogImage} className="card_image" />
-                        </div>
-                        <h3>{e.blogTitle.slice(0, 20)}...</h3>
-                        <div className="blog_date">
-                          <GoDiscussionOutdated className="date_icon" />
-                          <i>{formatDate(e.Date)}</i>
-                        </div>
-                        <p>
-                          {e.blogDescription.slice(0, 150)}{" "}
-                          <strong>Read More...</strong>
-                        </p>
-                      </div>
-                    </NavLink>
-                  </>
-                );
-              })}
-            </div>
-          )}
+            )}
+          </div>
         </div>
-      </div>
+      ) : null}
     </>
   );
 };
